@@ -108,10 +108,37 @@ h1 {
 .tile-green { background: linear-gradient(135deg, #0b6a0b, var(--green)); }
 .tile-purple { background: linear-gradient(135deg, #51337f, var(--purple)); }
 .tile-orange { background: linear-gradient(135deg, #a93600, var(--orange)); }
+.tile-avatar { padding: 0; }
+.avatar-link {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  padding: clamp(16px, 2vw, 22px);
+}
+.avatar-badge {
+  width: clamp(66px, 8vw, 92px);
+  height: clamp(66px, 8vw, 92px);
+  flex: 0 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 30% 30%, #7fe8ff, #2da8ff 55%, #1b5fa7 100%);
+  color: white;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+.avatar-copy { min-width: 0; }
+.avatar-copy .tile-label { margin-bottom: 10px; }
+.avatar-copy .tile-title { margin-bottom: 6px; }
+.avatar-copy .tile-note { margin-top: 0; }
 .tile-red { background: linear-gradient(135deg, #a80000, var(--red)); }
 .tile-dark { background: linear-gradient(135deg, #202735, #111827); }
 .tile-wide { grid-column: span 2; }
-.tile-xl { grid-column: span 3; grid-row: span 2; }
 .tile-tall { grid-row: span 2; }
 .tile-full { grid-column: span 6; }
 .tile-label {
@@ -230,14 +257,18 @@ h1 {
       <div class="list" id="mlb-list"></div>
     </article>
 
-    <article class="tile tile-wide tile-green">
-      <div class="tile-label"><span>今日摘要</span><span class="tile-icon">✨</span></div>
-      <h2 class="tile-title" id="summary-title">載入中...</h2>
-      <div class="tile-value" id="summary-value">—</div>
-      <p class="tile-note" id="summary-note">同步三個公開來源中</p>
+    <article class="tile tile-wide tile-green tile-avatar">
+      <a class="avatar-link" id="telegram-link" href="https://t.me/share/url?url=https%3A%2F%2Ftemburawnj.github.io%2Fvertical-dashboard%2F&text=Venat" target="_blank" rel="noopener noreferrer">
+        <div class="avatar-badge" aria-hidden="true">V</div>
+        <div class="avatar-copy">
+          <div class="tile-label"><span>Venat</span><span class="tile-icon">✦</span></div>
+          <h2 class="tile-title" id="assistant-title">傾聽、感受、思考</h2>
+          <p class="tile-note" id="assistant-note">點我開啟 Telegram</p>
+        </div>
+      </a>
     </article>
 
-    <article class="tile tile-orange compact">
+    <article class="tile tile-wide tile-orange">
       <div class="tile-label"><span>天氣</span><span class="tile-icon">☁</span></div>
       <h2 class="tile-title" id="weather-title">新北</h2>
       <div class="tile-value" id="weather-value">—</div>
@@ -327,25 +358,28 @@ function weatherLabel(code) {
 }
 
 function updateSummary() {
-  const title = document.getElementById('summary-title');
-  const value = document.getElementById('summary-value');
-  const note = document.getElementById('summary-note');
-  if (!title || !value || !note) return;
-
-  if (!state.weather && !state.mlb && !state.news) {
-    title.textContent = '同步中...';
-    value.textContent = '—';
-    note.textContent = '正在抓取天氣、棒球與新聞';
-    return;
+  const title = document.getElementById('assistant-title');
+  const note = document.getElementById('assistant-note');
+  const link = document.getElementById('telegram-link');
+  if (link) {
+    const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent('Venat')}`;
+    link.href = shareUrl;
   }
+
+  if (!title || !note) return;
 
   const weatherText = state.weather?.temp != null ? `${state.weather.temp}°` : '—';
   const mlbText = state.mlb ? `${state.mlb.count} 場` : '—';
   const newsText = state.news ? `${state.news.count} 則` : '—';
 
+  if (!state.weather && !state.mlb && !state.news) {
+    title.textContent = '傾聽、感受、思考';
+    note.textContent = '點我開啟 Telegram';
+    return;
+  }
+
   title.textContent = `${weatherText}｜${mlbText}｜${newsText}`;
-  value.textContent = state.hermes ? `Hermes ${state.hermes.assistant}` : '公開來源已同步';
-  note.textContent = state.hermes ? `最後更新 ${state.hermes.last_updated}` : '已連線天氣、棒球、新聞';
+  note.textContent = '公開資訊已同步';
 }
 
 async function fetchWeather() {
