@@ -3,7 +3,7 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-06-19 23:05",
+  "last_updated": "2026-06-19 23:20",
   "gateway": "ok",
   "today_messages": 1,
   "total_tokens_today": "N/A",
@@ -11,7 +11,7 @@
     {
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "last_run": "2026-06-19 22:53:17.250463"
+      "last_run": "2026-06-19 23:05:06.153910"
     }
   ]
 }
