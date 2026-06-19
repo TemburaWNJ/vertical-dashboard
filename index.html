@@ -231,28 +231,22 @@ h1 {
     </article>
 
     <article class="tile tile-wide tile-green">
-      <div class="tile-label"><span>台股</span><span class="tile-icon">📈</span></div>
-      <h2 class="tile-title">台灣加權指</h2>
-      <div class="tile-value">22,450</div>
-      <p class="tile-note change-up">+87.42 · +0.4%</p>
-    </article>
-
-    <article class="tile tile-purple compact">
-      <div class="tile-label"><span>NASDAQ</span></div>
-      <h2 class="tile-title">19,845</h2>
-      <p class="tile-note change-down">-0.6%</p>
+      <div class="tile-label"><span>今日摘要</span><span class="tile-icon">✨</span></div>
+      <h2 class="tile-title" id="summary-title">載入中...</h2>
+      <div class="tile-value" id="summary-value">—</div>
+      <p class="tile-note" id="summary-note">同步三個公開來源中</p>
     </article>
 
     <article class="tile tile-orange compact">
       <div class="tile-label"><span>天氣</span><span class="tile-icon">☁</span></div>
-      <h2 class="tile-title">新北</h2>
-      <div class="tile-value">28°</div>
-      <p class="tile-note">午後短暫雨 placeholder</p>
+      <h2 class="tile-title" id="weather-title">新北</h2>
+      <div class="tile-value" id="weather-value">—</div>
+      <p class="tile-note" id="weather-note">載入中...</p>
     </article>
 
     <article class="tile tile-wide tile-cyan">
-      <div class="tile-label"><span>今日新聞</span><span class="tile-icon">📰</span></div>
-      <h2 class="tile-title">重點摘要</h2>
+      <div class="tile-label"><span>最新新聞</span><span class="tile-icon">📰</span></div>
+      <h2 class="tile-title">科技熱點</h2>
       <div class="list" id="news-list"></div>
     </article>
 
@@ -277,25 +271,49 @@ h1 {
 </main>
 
 <script>
-const mlb = [
-  {game: 'Dodgers vs Giants', status: 'Final', score: 'LAD 5, SF 3'},
-  {game: 'Cubs vs Cardinals', status: 'Pre-game', score: '19:05 ET'}
-];
-const news = [
-  {title: 'Google I/O 2026 6/18 登場', source: '科技新報'},
-  {title: '美聯儲利率決定引發市場波動', source: '經濟日報'},
-  {title: '新北市建案最新動態', source: '本地社報'}
-];
+const state = {
+  weather: null,
+  mlb: null,
+  news: null,
+  hermes: null,
+};
+
+const WEATHER_CODES = {
+  0: '晴朗',
+  1: '多雲',
+  2: '局部多雲',
+  3: '陰天',
+  45: '有霧',
+  48: '霧凇',
+  51: '毛毛雨',
+  53: '毛毛雨',
+  55: '毛毛雨',
+  61: '小雨',
+  63: '中雨',
+  65: '大雨',
+  66: '凍雨',
+  67: '凍雨',
+  71: '小雪',
+  73: '中雪',
+  75: '大雪',
+  77: '雪粒',
+  80: '短暫陣雨',
+  81: '陣雨',
+  82: '強陣雨',
+  85: '短暫降雪',
+  86: '大雪',
+  95: '雷雨',
+  96: '雷雨夾冰雹',
+  99: '強雷雨夾冰雹'
+};
 
 function esc(s) {
-  // Simplified escaping for HTML content, removing backtick and slash which are less common causes
-  // of SyntaxError and can be problematic with template literals.
   return String(s).replace(/[&<>"']/g, c => ({
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
     '"': '&quot;',
-    '\'': '&#39;'
+    "'": '&#39;'
   }[c]));
 }
 
@@ -304,36 +322,174 @@ function renderList(id, arr, tmpl) {
   if (el) el.innerHTML = arr.map(tmpl).join('');
 }
 
-// Render static content
-renderList('mlb-list', mlb, m => `<div class="list-item"><div><div class="list-title">${esc(m.game)}</div><div class="meta">${esc(m.status)}</div></div><strong>${esc(m.score)}</strong></div>`);
-renderList('news-list', news, n => `<div class="list-item"><div><div class="list-title">${esc(n.title)}</div><div class="meta">${esc(n.source)}</div></div></div>`);
+function weatherLabel(code) {
+  return WEATHER_CODES[code] || '天氣更新';
+}
 
-// Fetch and render dynamic AI status and cron jobs
+function updateSummary() {
+  const title = document.getElementById('summary-title');
+  const value = document.getElementById('summary-value');
+  const note = document.getElementById('summary-note');
+  if (!title || !value || !note) return;
+
+  if (!state.weather && !state.mlb && !state.news) {
+    title.textContent = '同步中...';
+    value.textContent = '—';
+    note.textContent = '正在抓取天氣、棒球與新聞';
+    return;
+  }
+
+  const weatherText = state.weather?.temp != null ? `${state.weather.temp}°` : '—';
+  const mlbText = state.mlb ? `${state.mlb.count} 場` : '—';
+  const newsText = state.news ? `${state.news.count} 則` : '—';
+
+  title.textContent = `${weatherText}｜${mlbText}｜${newsText}`;
+  value.textContent = state.hermes ? `Hermes ${state.hermes.assistant}` : '公開來源已同步';
+  note.textContent = state.hermes ? `最後更新 ${state.hermes.last_updated}` : '已連線天氣、棒球、新聞';
+}
+
+async function fetchWeather() {
+  const title = document.getElementById('weather-title');
+  const value = document.getElementById('weather-value');
+  const note = document.getElementById('weather-note');
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=25.017&longitude=121.462&current=temperature_2m,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=Asia%2FTaipei';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`weather HTTP ${res.status}`);
+    const data = await res.json();
+    const current = data.current || {};
+    const daily = data.daily || {};
+    const code = current.weather_code ?? daily.weather_code?.[0];
+    const temp = current.temperature_2m ?? daily.temperature_2m_max?.[0];
+    const wind = current.wind_speed_10m;
+
+    state.weather = {
+      temp: temp != null ? Math.round(temp) : null,
+      label: weatherLabel(code),
+      wind: wind != null ? Math.round(wind) : null,
+      max: daily.temperature_2m_max?.[0] != null ? Math.round(daily.temperature_2m_max[0]) : null,
+      min: daily.temperature_2m_min?.[0] != null ? Math.round(daily.temperature_2m_min[0]) : null,
+    };
+
+    if (title) title.textContent = `新北 · ${state.weather.label}`;
+    if (value) value.textContent = state.weather.temp != null ? `${state.weather.temp}°` : '—';
+    if (note) note.textContent = state.weather.wind != null
+      ? `風速 ${state.weather.wind} km/h · 高 ${state.weather.max ?? '—'}° / 低 ${state.weather.min ?? '—'}°`
+      : `高 ${state.weather.max ?? '—'}° / 低 ${state.weather.min ?? '—'}°`;
+
+    updateSummary();
+  } catch (error) {
+    console.error('Failed to fetch weather:', error);
+    if (title) title.textContent = '新北';
+    if (value) value.textContent = '—';
+    if (note) note.textContent = '天氣載入失敗';
+  }
+}
+
+async function fetchMLB() {
+  const listEl = document.getElementById('mlb-list');
+  const titleEl = document.querySelector('.tile-blue .tile-title');
+  const valueEl = document.querySelector('.tile-blue .tile-value');
+  const noteEl = document.querySelector('.tile-blue .tile-note');
+  try {
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Taipei' });
+    const url = `https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=${today}&hydrate=team,linescore,decisions`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`mlb HTTP ${res.status}`);
+    const data = await res.json();
+    const games = data.dates?.[0]?.games || [];
+
+    state.mlb = { count: games.length };
+
+    if (titleEl) titleEl.textContent = games.length ? `今日 MLB · ${games.length} 場` : '今日 MLB';
+    if (valueEl) valueEl.textContent = games.length ? `${games.length} 場` : '0 場';
+    if (noteEl) noteEl.textContent = games.length ? '點開可看即時比分摘要' : '今天沒有賽事';
+
+    if (listEl) {
+      if (!games.length) {
+        listEl.innerHTML = '<div class="tile-note">今天沒有 MLB 賽事。</div>';
+      } else {
+        listEl.innerHTML = games.slice(0, 3).map(game => {
+          const away = game.teams?.away?.team?.name || 'Away';
+          const home = game.teams?.home?.team?.name || 'Home';
+          const awayScore = game.teams?.away?.score;
+          const homeScore = game.teams?.home?.score;
+          const stateText = game.status?.detailedState || game.status?.abstractGameState || 'N/A';
+          const timeText = game.gameDate ? new Date(game.gameDate).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Taipei' }) : '';
+          const line = (awayScore != null && homeScore != null) ? `${awayScore} - ${homeScore}` : (game.gameNumber ? `Game ${game.gameNumber}` : '');
+          return `<div class="list-item"><div><div class="list-title">${esc(away)} @ ${esc(home)}</div><div class="meta">${esc(stateText)}${timeText ? ` · ${esc(timeText)}` : ''}</div></div><strong>${esc(line || '—')}</strong></div>`;
+        }).join('');
+      }
+    }
+
+    updateSummary();
+  } catch (error) {
+    console.error('Failed to fetch MLB:', error);
+    if (listEl) listEl.innerHTML = '<div class="tile-note">MLB 資料載入失敗。</div>';
+    if (titleEl) titleEl.textContent = '今日 MLB';
+    if (valueEl) valueEl.textContent = '—';
+    if (noteEl) noteEl.textContent = '無法取得賽事';
+  }
+}
+
+async function fetchNews() {
+  const listEl = document.getElementById('news-list');
+  try {
+    const url = 'https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=3';
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`news HTTP ${res.status}`);
+    const data = await res.json();
+    const hits = data.hits || [];
+
+    state.news = { count: hits.length };
+
+    if (listEl) {
+      if (!hits.length) {
+        listEl.innerHTML = '<div class="tile-note">沒有新聞資料。</div>';
+      } else {
+        listEl.innerHTML = hits.map(hit => {
+          const title = hit.title || hit.story_title || '未命名標題';
+          const source = hit.author ? `by ${hit.author}` : 'Hacker News';
+          const link = hit.url || hit.story_url || `https://news.ycombinator.com/item?id=${hit.objectID}`;
+          return `<a class="list-item" href="${esc(link)}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;"><div><div class="list-title">${esc(title)}</div><div class="meta">${esc(source)}</div></div><strong>↗</strong></a>`;
+        }).join('');
+      }
+    }
+
+    updateSummary();
+  } catch (error) {
+    console.error('Failed to fetch news:', error);
+    if (listEl) listEl.innerHTML = '<div class="tile-note">新聞資料載入失敗。</div>';
+  }
+}
+
 async function fetchHermesStatus() {
   try {
     const response = await fetch('./status.json');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     const data = await response.json();
 
-    // Render AI Status
+    state.hermes = {
+      assistant: data.assistant || 'Venat',
+      model: data.model || 'N/A',
+      provider: data.provider || 'N/A',
+      today_messages: data.today_messages ?? 'N/A',
+      last_updated: data.last_updated || 'N/A',
+    };
+
     const aiStatusTitle = document.getElementById('ai-status-title');
-    if (aiStatusTitle) aiStatusTitle.textContent = `Hermes ${esc(data.assistant)}`; 
-    
+    if (aiStatusTitle) aiStatusTitle.textContent = `Hermes ${esc(state.hermes.assistant)}`;
+
     const aiStatusMeta = document.getElementById('ai-status-meta');
-    if (aiStatusMeta) aiStatusMeta.innerHTML = `模型: ${esc(data.model)} (${esc(data.provider)}) · 今日訊息: ${esc(data.today_messages)}<br>最後更新: ${esc(data.last_updated)}`;
-    
-    // Render AI Service List (hardcoded for now, based on previous structure)
-    // Note: The services array itself contains template literals (`), ensure Python escaping.
+    if (aiStatusMeta) aiStatusMeta.innerHTML = `模型: ${esc(state.hermes.model)} (${esc(state.hermes.provider)}) · 今日訊息: ${esc(state.hermes.today_messages)}<br>最後更新: ${esc(state.hermes.last_updated)}`;
+
     const services = [
-      {name: 'Hermes Agent', meta: `Telegram Bot 運行中`, state: data.online ? 'online' : 'offline'},
-      {name: 'OpenRouter API', meta: `key 配置完成`, state: 'online'}, // Placeholder, needs actual check
-      {name: 'Gemini API', meta: `餘額需人工確認`, state: 'warn'} // Placeholder, needs actual check
+      {name: 'Hermes Agent', meta: 'Telegram Bot 運行中', state: data.online ? 'online' : 'warn'},
+      {name: 'OpenRouter API', meta: '已連線', state: 'online'},
+      {name: 'Gemini API', meta: '餘額待確認', state: 'warn'}
     ];
     renderList('ai-service-list', services, s => `<div class="status-row"><span class="dot ${esc(s.state)}"></span><div><div class="list-title">${esc(s.name)}</div><div class="meta">${esc(s.meta)}</div></div></div>`);
 
-    // Render Cron Jobs
     const cronJobsList = document.getElementById('cron-jobs-list');
     if (cronJobsList && data.cron_jobs && data.cron_jobs.length > 0) {
       cronJobsList.innerHTML = data.cron_jobs.map(job => `
@@ -342,7 +498,7 @@ async function fetchHermesStatus() {
             <div class="list-title">${esc(job.name)}</div>
             <div class="meta">排程: ${esc(job.schedule)} · 上次: ${esc(job.last_run)}</div>
           </div>
-          <span class="dot ${esc(job.status === '運行中' ? 'online' : 'offline')}"></span>
+          <span class="dot ${esc(job.status === '運行中' ? 'online' : 'warn')}"></span>
         </div>
       `).join('');
     } else if (cronJobsList) {
@@ -350,10 +506,11 @@ async function fetchHermesStatus() {
     }
 
     const refreshInfo = document.getElementById('refresh-info');
-    if (refreshInfo) refreshInfo.textContent = `最後更新於: ${esc(data.last_updated)} · 每 15 分鐘自動重整`;
+    if (refreshInfo) refreshInfo.textContent = `最後更新於: ${esc(state.hermes.last_updated)} · 每 15 分鐘自動重整`;
 
+    updateSummary();
   } catch (error) {
-    console.error("Failed to fetch Hermes status:", error);
+    console.error('Failed to fetch Hermes status:', error);
     const aiStatusTitle = document.getElementById('ai-status-title');
     if (aiStatusTitle) aiStatusTitle.textContent = 'Hermes 狀態異常';
     const aiStatusMeta = document.getElementById('ai-status-meta');
@@ -367,17 +524,24 @@ async function fetchHermesStatus() {
   }
 }
 
-// Clock update function
 function updateClock() {
   const now = new Date();
-  document.getElementById('clock-time').textContent = now.toLocaleTimeString('zh-TW', {hour: '2-digit', minute: '2-digit'});
-  document.getElementById('clock-date').textContent = now.toLocaleDateString('zh-TW', {weekday: 'long', month: 'long', day: 'numeric'});
+  const timeEl = document.getElementById('clock-time');
+  const dateEl = document.getElementById('clock-date');
+  if (timeEl) timeEl.textContent = now.toLocaleTimeString('zh-TW', {hour: '2-digit', minute: '2-digit'});
+  if (dateEl) dateEl.textContent = now.toLocaleDateString('zh-TW', {weekday: 'long', month: 'long', day: 'numeric'});
 }
 
 updateClock();
 setInterval(updateClock, 1000 * 30);
-fetchHermesStatus(); // Initial fetch
-setInterval(fetchHermesStatus, 5 * 60 * 1000); // Fetch every 5 minutes
+fetchWeather();
+fetchMLB();
+fetchNews();
+fetchHermesStatus();
+setInterval(fetchWeather, 10 * 60 * 1000);
+setInterval(fetchMLB, 10 * 60 * 1000);
+setInterval(fetchNews, 10 * 60 * 1000);
+setInterval(fetchHermesStatus, 5 * 60 * 1000);
 setTimeout(() => location.reload(), 15 * 60 * 1000);
 </script>
 </body>
