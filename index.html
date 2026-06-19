@@ -367,12 +367,6 @@ function weatherLabel(code) {
 function updateSummary() {
   const title = document.getElementById('assistant-title');
   const note = document.getElementById('assistant-note');
-  const link = document.getElementById('telegram-link');
-  if (link) {
-    const shareUrl = `https://t.me/share/url?url=${encodeURIComponent(location.href)}&text=${encodeURIComponent('Venat')}`;
-    link.href = shareUrl;
-  }
-
   if (!title || !note) return;
 
   const weatherText = state.weather?.temp != null ? `${state.weather.temp}°` : '—';
