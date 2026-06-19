@@ -181,7 +181,7 @@ h1 {
   color: var(--soft);
   font-size: 12px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;\
   gap: 14px;
   flex-wrap: wrap;
 }
@@ -288,14 +288,14 @@ const news = [
 ];
 
 function esc(s) {
-  return String(s).replace(/[&<>'"`/]/g, c => ({
+  // Simplified escaping for HTML content, removing backtick and slash which are less common causes
+  // of SyntaxError and can be problematic with template literals.
+  return String(s).replace(/[&<>"']/g, c => ({
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
-    "'": '&#39;',
     '"': '&quot;',
-    '`': '&#96;', // Escape backticks for safety
-    '/': '&#x2F;'
+    '\'': '&#39;'
   }[c]));
 }
 
@@ -325,6 +325,7 @@ async function fetchHermesStatus() {
     if (aiStatusMeta) aiStatusMeta.innerHTML = `模型: ${esc(data.model)} (${esc(data.provider)}) · 今日訊息: ${esc(data.today_messages)}<br>最後更新: ${esc(data.last_updated)}`;
     
     // Render AI Service List (hardcoded for now, based on previous structure)
+    // Note: The services array itself contains template literals (`), ensure Python escaping.
     const services = [
       {name: 'Hermes Agent', meta: `Telegram Bot 運行中`, state: data.online ? 'online' : 'offline'},
       {name: 'OpenRouter API', meta: `key 配置完成`, state: 'online'}, // Placeholder, needs actual check
