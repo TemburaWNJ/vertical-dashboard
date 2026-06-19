@@ -3,15 +3,15 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-06-19 19:10",
+  "last_updated": "2026-06-19 23:05",
   "gateway": "ok",
-  "today_messages": 232,
+  "today_messages": 1,
   "total_tokens_today": "N/A",
   "cron_jobs": [
     {
-      "name": "PTT Drama_Ticket 演唱會門票監控",
-      "schedule": "every 30m",
-      "last_run": "2026-06-19 18:52:49.659076"
+      "name": "status.json silent sync",
+      "schedule": "every 15m",
+      "last_run": "2026-06-19 22:53:17.250463"
     }
   ]
 }
