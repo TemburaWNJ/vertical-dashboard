@@ -3,15 +3,15 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-06-23 11:52",
+  "last_updated": "2026-06-23 12:08",
   "gateway": "ok",
-  "today_messages": 27,
+  "today_messages": 44,
   "total_tokens_today": "N/A",
   "cron_jobs": [
     {
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "last_run": "2026-06-23 11:37:28.676503"
+      "last_run": "2026-06-23 11:52:43.817416"
     }
   ]
 }
