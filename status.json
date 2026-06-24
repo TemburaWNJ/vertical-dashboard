@@ -3,9 +3,9 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-06-25 02:40",
+  "last_updated": "2026-06-25 02:56",
   "gateway": "ok",
-  "today_messages": 12,
+  "today_messages": 32,
   "total_tokens_today": "N/A",
   "cron_jobs": [
     {
@@ -21,8 +21,8 @@
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-06-25 02:55:13.571474",
-      "last_run": "2026-06-25 02:25:10.067242"
+      "next_run": "2026-06-25 03:11:07.359628",
+      "last_run": "2026-06-25 02:40:15.700297"
     },
     {
       "status": "運行中",
@@ -38,6 +38,27 @@
       "name": "新瑪奇回鍋任務與活動整理 — 早上8點報告",
       "schedule": "once at 2026-06-25 08:00",
       "next_run": "2026-06-25 08:00:00"
+    },
+    {
+      "status": "運行中",
+      "id": "122d43144a43",
+      "name": "新瑪奇回鍋資料蒐集A — 官方活動與福利",
+      "schedule": "once at 2026-06-25 03:10",
+      "next_run": "2026-06-25 03:10:00"
+    },
+    {
+      "status": "運行中",
+      "id": "ef1a26611b60",
+      "name": "新瑪奇回鍋資料蒐集B — 必要任務與祕法順序",
+      "schedule": "once at 2026-06-25 04:30",
+      "next_run": "2026-06-25 04:30:00"
+    },
+    {
+      "status": "運行中",
+      "id": "e9dd6a9e30d9",
+      "name": "新瑪奇回鍋資料蒐集C — 巨人近戰與賽維爾困難高級",
+      "schedule": "once at 2026-06-25 06:00",
+      "next_run": "2026-06-25 06:00:00"
     }
   ]
 }
