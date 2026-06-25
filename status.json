@@ -3,7 +3,7 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-06-26 04:32",
+  "last_updated": "2026-06-26 04:48",
   "gateway": "ok",
   "today_messages": 107,
   "total_tokens_today": "N/A",
@@ -13,16 +13,16 @@
       "id": "87522d8a2474",
       "name": "PTT Drama_Ticket 演唱會門票監控",
       "schedule": "every 30m",
-      "next_run": "2026-06-26 04:42:23.653839",
-      "last_run": "2026-06-26 04:12:23.653839"
+      "next_run": "2026-06-26 05:12:25.009190",
+      "last_run": "2026-06-26 04:42:25.009190"
     },
     {
       "status": "運行中",
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-06-26 04:47:26.276867",
-      "last_run": "2026-06-26 04:17:26.186618"
+      "next_run": "2026-06-26 05:03:24.966263",
+      "last_run": "2026-06-26 04:32:28.357657"
     },
     {
       "status": "運行中",
