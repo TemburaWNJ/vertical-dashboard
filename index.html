@@ -625,6 +625,7 @@ setTimeout(() => location.reload(), 15 * 60 * 1000);
 </script>
 
 
+
 <script id="stock-privacy-script">
 (() => {
   const tile = document.querySelector('.stock-tile');
@@ -637,7 +638,8 @@ setTimeout(() => location.reload(), 15 * 60 * 1000);
     button.setAttribute('aria-pressed', masked ? 'true' : 'false');
     button.setAttribute('aria-label', masked ? '顯示台股持股金額' : '遮蔽台股持股金額');
   };
-  apply(localStorage.getItem(key) === '1');
+  const saved = localStorage.getItem(key);
+  apply(saved === null ? true : saved === '1');
   button?.addEventListener('click', (event) => {
     event.preventDefault();
     const masked = !tile.classList.contains('stock-masked');
