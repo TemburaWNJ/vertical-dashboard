@@ -3,7 +3,7 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-06-30 18:46",
+  "last_updated": "2026-06-30 19:01",
   "gateway": "ok",
   "today_messages": 150,
   "total_tokens_today": "N/A",
@@ -13,16 +13,16 @@
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-06-30 19:01:04.277002",
-      "last_run": "2026-06-30 18:30:38.748522"
+      "next_run": "2026-06-30 19:16:37.041898",
+      "last_run": "2026-06-30 18:46:06.419801"
     },
     {
       "status": "運行中",
       "id": "8601056c001e",
       "name": "台股 Dashboard 盤中自動更新",
       "schedule": "every 30m",
-      "next_run": "2026-06-30 18:46:36.532584",
-      "last_run": "2026-06-30 18:16:36.532584"
+      "next_run": "2026-06-30 19:16:36.916828",
+      "last_run": "2026-06-30 18:46:36.916828"
     }
   ]
 }
