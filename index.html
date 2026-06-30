@@ -263,6 +263,23 @@ h1 {
 .stock-tile.stock-masked .stock-eye { font-size: 0; }
 .stock-tile.stock-masked .stock-eye::before { font-size: 15px; }
 
+.fx-tile { min-height: 232px; }
+.fx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin-top: 12px; }
+.fx-card { padding: 10px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.08); }
+.fx-card span { display: block; color: rgba(255,255,255,.68); font-size: 12px; letter-spacing: .05em; }
+.fx-card strong { display: block; margin-top: 4px; font-size: clamp(23px, 3vw, 34px); font-weight: 250; letter-spacing: -.04em; }
+.fx-card small { display: block; margin-top: 5px; font-size: 11px; font-weight: 650; line-height: 1.35; }
+.fx-chart { margin-top: 12px; min-height: 82px; border-top: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
+.fx-chart svg { width: 100%; height: 82px; display: block; overflow: visible; }
+.fx-chart text { fill: rgba(255,255,255,.62); font-size: 10px; }
+.fx-line-usd { fill: none; stroke: #8bd3ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.fx-line-jpy { fill: none; stroke: #ffd166; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.fx-dot-usd { fill: #8bd3ff; }
+.fx-dot-jpy { fill: #ffd166; }
+.fx-up { color: #ffd2d6; }
+.fx-down { color: #b7ffbd; }
+.fx-flat { color: rgba(255,255,255,.76); }
+
 </style>
 </head>
 <body>
@@ -318,6 +335,19 @@ h1 {
       </details>
     </article>
 
+
+
+    <article class="tile tile-wide tile-dark fx-tile">
+      <div class="tile-label"><span>匯率</span><span class="tile-icon">💱</span></div>
+      <h2 class="tile-title">USD / JPY → TWD</h2>
+      <div class="fx-grid">
+        <div class="fx-card"><span>1 美金</span><strong id="fx-usd">—</strong><small id="fx-usd-change">載入中</small></div>
+        <div class="fx-card"><span>100 日圓</span><strong id="fx-jpy">—</strong><small id="fx-jpy-change">載入中</small></div>
+      </div>
+      <div class="fx-chart" id="fx-chart" aria-label="美金與日圓對台幣近月變化"></div>
+      <p class="tile-note" id="fx-note">資料源載入中...</p>
+    </article>
+
     <article class="tile tile-wide tile-orange">
       <div class="tile-label"><span>天氣</span><span class="tile-icon">☁</span></div>
       <h2 class="tile-title" id="weather-title">新北</h2>
@@ -347,7 +377,7 @@ h1 {
 
   <footer class="footer">
     <span>版型：Windows Phone / Metro 方格風格 · RWD</span>
-    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股摘要</span>
+    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股與匯率摘要</span>
   </footer>
 </main>
 
@@ -603,6 +633,74 @@ async function fetchHermesStatus() {
   }
 }
 
+
+async function fetchExchangeRates() {
+  const usdEl = document.getElementById('fx-usd');
+  const jpyEl = document.getElementById('fx-jpy');
+  const usdChangeEl = document.getElementById('fx-usd-change');
+  const jpyChangeEl = document.getElementById('fx-jpy-change');
+  const chartEl = document.getElementById('fx-chart');
+  const noteEl = document.getElementById('fx-note');
+  if (!usdEl || !jpyEl) return;
+  const apiBase = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api';
+  const fetchRates = async (tag) => {
+    const res = await fetch(`${apiBase}@${tag}/v1/currencies/usd.json`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`fx HTTP ${res.status}`);
+    const data = await res.json();
+    return { date: data.date, usdTwd: data.usd?.twd, jpyTwd: data.usd?.twd / data.usd?.jpy };
+  };
+  const shiftDate = (iso, days) => {
+    const d = new Date(`${iso}T00:00:00Z`);
+    d.setUTCDate(d.getUTCDate() + days);
+    return d.toISOString().slice(0, 10);
+  };
+  const pct = (now, base) => (now - base) / base * 100;
+  const cls = (v) => Math.abs(v) < 0.005 ? 'fx-flat' : (v > 0 ? 'fx-up' : 'fx-down');
+  const fmt = (v, digits = 3) => Number(v).toLocaleString('zh-TW', { minimumFractionDigits: digits, maximumFractionDigits: digits });
+  const changeText = (now, prev, month) => {
+    const day = pct(now, prev);
+    const mon = pct(now, month);
+    return `<span class="${cls(day)}">日 ${day >= 0 ? '+' : ''}${day.toFixed(2)}%</span> · <span class="${cls(mon)}">月 ${mon >= 0 ? '+' : ''}${mon.toFixed(2)}%</span>`;
+  };
+  const pointLine = (values, width, height, top, bottom) => {
+    const min = Math.min(...values), max = Math.max(...values);
+    const span = Math.max(max - min, 0.000001);
+    return values.map((v, i) => {
+      const x = 12 + i * ((width - 24) / (values.length - 1));
+      const y = top + (1 - (v - min) / span) * (height - top - bottom);
+      return [x, y];
+    });
+  };
+  try {
+    const latest = await fetchRates('latest');
+    const prevDate = shiftDate(latest.date, -1);
+    const monthDate = shiftDate(latest.date, -30);
+    const [prev, month] = await Promise.all([fetchRates(prevDate), fetchRates(monthDate)]);
+    if (!latest.usdTwd || !latest.jpyTwd || !prev.usdTwd || !prev.jpyTwd || !month.usdTwd || !month.jpyTwd) throw new Error('missing TWD/JPY rates');
+    usdEl.textContent = fmt(latest.usdTwd, 3);
+    jpyEl.textContent = fmt(latest.jpyTwd * 100, 3);
+    if (usdChangeEl) usdChangeEl.innerHTML = changeText(latest.usdTwd, prev.usdTwd, month.usdTwd);
+    if (jpyChangeEl) jpyChangeEl.innerHTML = changeText(latest.jpyTwd, prev.jpyTwd, month.jpyTwd);
+    if (chartEl) {
+      const w = 320, h = 82;
+      const usdPts = pointLine([month.usdTwd, prev.usdTwd, latest.usdTwd], w, h, 12, 24);
+      const jpyPts = pointLine([month.jpyTwd, prev.jpyTwd, latest.jpyTwd], w, h, 20, 16);
+      const path = pts => pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+      const dots = (pts, klass) => pts.map(p => `<circle class="${klass}" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3"></circle>`).join('');
+      chartEl.innerHTML = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="匯率近月走勢，藍線為美元、黃線為日圓"><path class="fx-line-usd" d="${path(usdPts)}"></path><path class="fx-line-jpy" d="${path(jpyPts)}"></path>${dots(usdPts, 'fx-dot-usd')}${dots(jpyPts, 'fx-dot-jpy')}<text x="12" y="78">${month.date.slice(5)}</text><text x="144" y="78">前日</text><text x="270" y="78">最新</text><text x="12" y="12">USD</text><text x="54" y="12">JPY</text></svg>`;
+    }
+    if (noteEl) noteEl.textContent = `最新 ${latest.date} · 前日 ${prev.date} · 前月 ${month.date} · 匯率上升代表外幣變貴`;
+  } catch (error) {
+    console.error('Failed to fetch exchange rates:', error);
+    usdEl.textContent = '—';
+    jpyEl.textContent = '—';
+    if (usdChangeEl) usdChangeEl.textContent = '載入失敗';
+    if (jpyChangeEl) jpyChangeEl.textContent = '載入失敗';
+    if (chartEl) chartEl.innerHTML = '<div class="tile-note">匯率走勢載入失敗。</div>';
+    if (noteEl) noteEl.textContent = '無法取得公開匯率資料';
+  }
+}
+
 function updateClock() {
   const now = new Date();
   const timeEl = document.getElementById('clock-time');
@@ -617,12 +715,15 @@ fetchWeather();
 fetchMLB();
 fetchNews();
 fetchHermesStatus();
+fetchExchangeRates();
 setInterval(fetchWeather, 10 * 60 * 1000);
 setInterval(fetchMLB, 10 * 60 * 1000);
 setInterval(fetchNews, 10 * 60 * 1000);
 setInterval(fetchHermesStatus, 5 * 60 * 1000);
+setInterval(fetchExchangeRates, 60 * 60 * 1000);
 setTimeout(() => location.reload(), 15 * 60 * 1000);
 </script>
+
 
 
 
