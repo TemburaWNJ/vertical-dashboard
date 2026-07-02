@@ -3,7 +3,7 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-07-02 16:22",
+  "last_updated": "2026-07-02 16:38",
   "gateway": "ok",
   "today_messages": 0,
   "total_tokens_today": "N/A",
@@ -13,8 +13,8 @@
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-07-02 16:37:48.330989",
-      "last_run": "2026-07-02 16:07:07.601565"
+      "next_run": "2026-07-02 16:53:05.990458",
+      "last_run": "2026-07-02 16:22:50.247805"
     },
     {
       "status": "運行中",
