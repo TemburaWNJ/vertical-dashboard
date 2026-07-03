@@ -238,82 +238,6 @@ h1 {
   .tile { transition: transform .18s ease, filter .18s ease; }
   .tile:hover { transform: translateY(-2px); }
 }
-
-.stock-tile { min-height: 138px; }
-.stock-value { font-size: clamp(30px, 4.8vw, 54px); }
-.stock-details { margin-top: 10px; }
-.stock-details summary { cursor: pointer; color: rgba(255,255,255,.86); font-weight: 650; list-style-position: inside; }
-.stock-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
-.stock-metrics div { padding: 9px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); }
-.stock-metrics span { display: block; color: rgba(255,255,255,.68); font-size: 12px; }
-.stock-metrics strong { font-size: 18px; }
-.stock-metrics small { display: block; margin-top: 3px; font-size: 11px; font-weight: 650; }
-.stock-list { display: grid; gap: 7px; margin: 10px 0 12px; }
-.stock-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; border-top: 1px solid rgba(255,255,255,.16); padding-top: 7px; }
-.stock-row small { display: block; color: rgba(255,255,255,.62); font-size: 11px; }
-.stock-link { display: inline-flex; color: inherit; text-decoration: none; border: 1px solid rgba(255,255,255,.28); padding: 7px 10px; margin: 2px 0 8px; background: rgba(255,255,255,.10); }
-
-.stock-up { color: #ffd2d6; }
-.stock-down { color: #b7ffbd; }
-.stock-trend-tile { background: linear-gradient(135deg, #182032, #0f1724); }
-.trend-header { display: grid; grid-template-columns: 1.2fr repeat(3, minmax(0, .8fr)); gap: 10px; align-items: end; margin-bottom: 12px; }
-.trend-primary strong { display: block; font-size: clamp(28px, 4.4vw, 52px); font-weight: 250; letter-spacing: -.06em; line-height: 1; }
-.trend-primary span, .trend-stat span { display: block; color: rgba(255,255,255,.64); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-.trend-stat { padding: 10px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); }
-.trend-stat strong { display: block; margin-top: 4px; font-size: clamp(17px, 2vw, 24px); font-weight: 500; }
-.trend-chart-wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; margin-top: 10px; }
-.trend-panel { min-height: 188px; padding: 12px; background: rgba(255,255,255,.065); border: 1px solid rgba(255,255,255,.13); }
-.trend-panel-title { display: flex; justify-content: space-between; gap: 10px; color: rgba(255,255,255,.78); font-size: 13px; margin-bottom: 8px; }
-.trend-chart { width: 100%; height: 150px; display: block; overflow: visible; }
-.trend-line { fill: none; stroke: #9bd7ff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 8px rgba(155,215,255,.34)); }
-.trend-area { fill: rgba(155,215,255,.12); }
-.trend-zero { stroke: rgba(255,255,255,.32); stroke-width: 1; stroke-dasharray: 4 5; }
-.trend-bar-up { fill: #ffd2d6; }
-.trend-bar-down { fill: #b7ffbd; }
-.trend-axis { color: rgba(255,255,255,.48); font-size: 10px; }
-.trend-insight { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
-.trend-insight div { padding: 9px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); }
-.trend-insight span { display: block; color: rgba(255,255,255,.62); font-size: 11px; }
-.trend-insight strong { display: block; margin-top: 4px; font-size: 16px; }
-@media (max-width: 900px) {
-  .trend-header { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .trend-primary { grid-column: span 2; }
-  .trend-chart-wrap { grid-template-columns: 1fr; }
-}
-@media (max-width: 640px) {
-  .trend-header, .trend-insight { grid-template-columns: 1fr; }
-  .trend-primary { grid-column: span 1; }
-}
-
-.stock-privacy-toggle { border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.12); color: inherit; border-radius: 999px; min-width: 34px; height: 28px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font: inherit; transition: background .18s ease, transform .18s ease; }
-.stock-privacy-toggle:hover { background: rgba(255,255,255,.20); transform: translateY(-1px); }
-.stock-tile.stock-masked .stock-private { color: transparent !important; text-shadow: 0 0 10px rgba(255,255,255,.78); user-select: none; }
-.stock-tile.stock-masked .stock-eye::before { content: '🙈'; }
-.stock-tile.stock-masked .stock-eye { font-size: 0; }
-.stock-tile.stock-masked .stock-eye::before { font-size: 15px; }
-
-.stock-row.stock-limit-up { background: rgba(255,107,122,.16); }
-.stock-row.stock-limit-down { background: rgba(87,214,141,.14); }
-.stock-limit-badge { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 999px; font-size: 10px; font-style: normal; font-weight: 800; vertical-align: middle; }
-.stock-limit-up-badge { color: #ffd2d6; background: rgba(255,107,122,.24); }
-.stock-limit-down-badge { color: #c8ffd1; background: rgba(87,214,141,.22); }
-.fx-tile { min-height: 232px; }
-.fx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; margin-top: 12px; }
-.fx-card { padding: 10px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.08); }
-.fx-card span { display: block; color: rgba(255,255,255,.68); font-size: 12px; letter-spacing: .05em; }
-.fx-card strong { display: block; margin-top: 4px; font-size: clamp(23px, 3vw, 34px); font-weight: 250; letter-spacing: -.04em; }
-.fx-card small { display: block; margin-top: 5px; font-size: 11px; font-weight: 650; line-height: 1.35; }
-.fx-chart { margin-top: 12px; min-height: 82px; border-top: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
-.fx-chart svg { width: 100%; height: 82px; display: block; overflow: visible; }
-.fx-chart text { fill: rgba(255,255,255,.62); font-size: 10px; }
-.fx-line-usd { fill: none; stroke: #8bd3ff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.fx-line-jpy { fill: none; stroke: #ffd166; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.fx-dot-usd { fill: #8bd3ff; }
-.fx-dot-jpy { fill: #ffd166; }
-.fx-up { color: #ffd2d6; }
-.fx-down { color: #b7ffbd; }
-.fx-flat { color: rgba(255,255,255,.76); }
-
 </style>
 </head>
 <body>
@@ -351,66 +275,6 @@ h1 {
       </a>
     </article>
 
-    <article class="tile tile-wide tile-purple stock-tile stock-masked">
-      <div class="tile-label"><span>台股持股</span><button class="stock-privacy-toggle" type="button" aria-label="遮蔽台股持股金額" aria-pressed="false"><span class="stock-eye" aria-hidden="true">👁</span></button></div>
-      <h2 class="tile-title">概估總市值</h2>
-      <div class="tile-value stock-value stock-private">2,338,380</div>
-      <p class="tile-note">今日估算 <strong class="stock-down stock-private">-15,491</strong> · 未實現 <strong class="stock-up stock-private">+1,102,087</strong></p>
-      <details class="stock-details">
-        <summary>展開持股摘要</summary>
-        <div class="stock-metrics">
-          <div><span>核心</span><strong>64.4%</strong><small class="stock-down"><span class="stock-private">-18,618</span> · -1.22%</small></div>
-          <div><span>短期</span><strong>35.6%</strong><small class="stock-up"><span class="stock-private">+3,128</span> · +0.38%</small></div>
-          <div><span>報酬</span><strong class="stock-up">+89.1%</strong></div>
-        </div>
-        <div class="stock-list"><div class="stock-row"><span>台積電<small>2330 · 41.5%</small></span><strong class="stock-up stock-private">+794,716</strong></div><div class="stock-row"><span>國巨*<small>2327 · 11.3%</small></span><strong class="stock-up stock-private">+5,935</strong></div><div class="stock-row"><span>主動統一台股增長<small>00981A · 6.8%</small></span><strong class="stock-up stock-private">+18,725</strong></div><div class="stock-row"><span>力積電<small>6770 · 6.4%</small></span><strong class="stock-up stock-private">+54,960</strong></div><div class="stock-row"><span>主動群益科技創新<small>00992A · 5.7%</small></span><strong class="stock-up stock-private">+8,645</strong></div></div>
-        <a class="stock-link" href="https://temburawnj.github.io/stock-dashboard/" target="_blank" rel="noopener noreferrer">完整 Dashboard ↗</a>
-        <div class="meta">行情 2026-07-03 11:32:09 · 更新 2026-07-03 11:32:12 · 公開頁僅供概估</div>
-      </details>
-    </article>
-
-    <article class="tile tile-full stock-trend-tile" id="stock-trend-tile">
-      <div class="tile-label"><span>持股趨勢</span><span class="tile-icon">〽</span></div>
-      <div class="trend-header">
-        <div class="trend-primary">
-          <span>目前總市值</span>
-          <strong id="trend-current-value">載入中</strong>
-          <div class="tile-note" id="trend-current-note">讀取每日紀錄...</div>
-        </div>
-        <div class="trend-stat"><span>近 7 日影響</span><strong id="trend-7d">—</strong></div>
-        <div class="trend-stat"><span>距歷史高點</span><strong id="trend-drawdown">—</strong></div>
-        <div class="trend-stat"><span>平均日波動</span><strong id="trend-volatility">—</strong></div>
-      </div>
-      <div class="trend-chart-wrap">
-        <section class="trend-panel" aria-label="總市值走勢">
-          <div class="trend-panel-title"><span>總市值起伏</span><span id="trend-value-range">—</span></div>
-          <svg class="trend-chart" id="trend-value-chart" viewBox="0 0 420 150" role="img" aria-label="總市值折線圖"></svg>
-        </section>
-        <section class="trend-panel" aria-label="每日差值影響">
-          <div class="trend-panel-title"><span>每日差值造成的影響</span><span id="trend-change-range">—</span></div>
-          <svg class="trend-chart" id="trend-change-chart" viewBox="0 0 360 150" role="img" aria-label="每日漲跌柱狀圖"></svg>
-        </section>
-      </div>
-      <div class="trend-insight">
-        <div><span>觀察期間</span><strong id="trend-period">—</strong></div>
-        <div><span>累積變化</span><strong id="trend-total-change">—</strong></div>
-        <div><span>最大單日影響</span><strong id="trend-biggest-day">—</strong></div>
-      </div>
-    </article>
-
-
-
-    <article class="tile tile-wide tile-dark fx-tile">
-      <div class="tile-label"><span>匯率</span><span class="tile-icon">💱</span></div>
-      <h2 class="tile-title">USD / JPY → TWD</h2>
-      <div class="fx-grid">
-        <div class="fx-card"><span>1 美金</span><strong id="fx-usd">—</strong><small id="fx-usd-change">載入中</small></div>
-        <div class="fx-card"><span>100 日圓</span><strong id="fx-jpy">—</strong><small id="fx-jpy-change">載入中</small></div>
-      </div>
-      <div class="fx-chart" id="fx-chart" aria-label="美金與日圓對台幣近月變化"></div>
-      <p class="tile-note" id="fx-note">資料源載入中...</p>
-    </article>
-
     <article class="tile tile-wide tile-orange">
       <div class="tile-label"><span>天氣</span><span class="tile-icon">☁</span></div>
       <h2 class="tile-title" id="weather-title">新北</h2>
@@ -440,7 +304,7 @@ h1 {
 
   <footer class="footer">
     <span>版型：Windows Phone / Metro 方格風格 · RWD</span>
-    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股與匯率摘要</span>
+    <span id="refresh-info">每 15 分鐘自動重整 · Placeholder data</span>
   </footer>
 </main>
 
@@ -696,205 +560,6 @@ async function fetchHermesStatus() {
   }
 }
 
-const DEFAULT_PORTFOLIO_HISTORY = [
-  {date: '2026-06-17', dailyChange: 18200, totalValue: 2246800},
-  {date: '2026-06-18', dailyChange: -9600, totalValue: 2237200},
-  {date: '2026-06-19', dailyChange: 27600, totalValue: 2264800},
-  {date: '2026-06-20', dailyChange: 7400, totalValue: 2272200},
-  {date: '2026-06-21', dailyChange: -11800, totalValue: 2260400},
-  {date: '2026-06-22', dailyChange: 42800, totalValue: 2303200},
-  {date: '2026-06-23', dailyChange: -15100, totalValue: 2288100},
-  {date: '2026-06-24', dailyChange: 17790, totalValue: 2305890},
-  {date: '2026-06-25', dailyChange: 13005, totalValue: 2318895}
-];
-
-function money(n) {
-  const value = Number(n) || 0;
-  return `${value < 0 ? '-' : ''}${Math.abs(Math.round(value)).toLocaleString('zh-TW')}`;
-}
-
-function signedMoney(n) {
-  const value = Number(n) || 0;
-  return `${value >= 0 ? '+' : '-'}${Math.abs(Math.round(value)).toLocaleString('zh-TW')}`;
-}
-
-function trendClass(n) {
-  return Number(n) >= 0 ? 'stock-up' : 'stock-down';
-}
-
-function setTrendText(id, text, cls) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.textContent = text;
-  el.classList.remove('stock-up', 'stock-down');
-  if (cls) el.classList.add(cls);
-}
-
-function pointsForLine(values, width, height, pad) {
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-  const span = Math.max(1, max - min);
-  return values.map((v, i) => {
-    const x = pad + (values.length === 1 ? 0 : i * ((width - pad * 2) / (values.length - 1)));
-    const y = height - pad - ((v - min) / span) * (height - pad * 2);
-    return [x, y];
-  });
-}
-
-function renderValueChart(rows) {
-  const svg = document.getElementById('trend-value-chart');
-  if (!svg) return;
-  const width = 420, height = 150, pad = 16;
-  const values = rows.map(r => Number(r.totalValue));
-  const pts = pointsForLine(values, width, height, pad);
-  const line = pts.map(p => p.join(',')).join(' ');
-  const area = `${pad},${height - pad} ${line} ${width - pad},${height - pad}`;
-  const min = Math.min(...values), max = Math.max(...values);
-  svg.innerHTML = `
-    <polygon class="trend-area" points="${area}"></polygon>
-    <polyline class="trend-line" points="${line}"></polyline>
-    <text class="trend-axis" x="${pad}" y="12">${money(max)}</text>
-    <text class="trend-axis" x="${pad}" y="146">${money(min)}</text>
-  `;
-  setTrendText('trend-value-range', `${money(min)} → ${money(max)}`);
-}
-
-function renderChangeChart(rows) {
-  const svg = document.getElementById('trend-change-chart');
-  if (!svg) return;
-  const width = 360, height = 150, pad = 16;
-  const changes = rows.map(r => Number(r.dailyChange));
-  const maxAbs = Math.max(1, ...changes.map(v => Math.abs(v)));
-  const zeroY = height / 2;
-  const gap = 4;
-  const barW = Math.max(5, (width - pad * 2) / changes.length - gap);
-  const bars = changes.map((v, i) => {
-    const x = pad + i * ((width - pad * 2) / changes.length) + gap / 2;
-    const h = Math.max(2, Math.abs(v) / maxAbs * (height / 2 - pad));
-    const y = v >= 0 ? zeroY - h : zeroY;
-    return `<rect class="${v >= 0 ? 'trend-bar-up' : 'trend-bar-down'}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="2"></rect>`;
-  }).join('');
-  svg.innerHTML = `
-    <line class="trend-zero" x1="${pad}" y1="${zeroY}" x2="${width - pad}" y2="${zeroY}"></line>
-    ${bars}
-    <text class="trend-axis" x="${pad}" y="12">+${money(maxAbs)}</text>
-    <text class="trend-axis" x="${pad}" y="146">-${money(maxAbs)}</text>
-  `;
-  setTrendText('trend-change-range', `±${money(maxAbs)}`);
-}
-
-function renderPortfolioTrend(rows) {
-  const clean = rows
-    .map(r => ({date: r.date, dailyChange: Number(r.dailyChange), totalValue: Number(r.totalValue)}))
-    .filter(r => r.date && Number.isFinite(r.dailyChange) && Number.isFinite(r.totalValue))
-    .sort((a, b) => String(a.date).localeCompare(String(b.date)))
-    .slice(-30);
-  if (!clean.length) throw new Error('portfolio history is empty');
-
-  const latest = clean[clean.length - 1];
-  const first = clean[0];
-  const last7 = clean.slice(-7);
-  const sum7 = last7.reduce((sum, r) => sum + r.dailyChange, 0);
-  const high = Math.max(...clean.map(r => r.totalValue));
-  const drawdown = latest.totalValue - high;
-  const avgAbs = clean.reduce((sum, r) => sum + Math.abs(r.dailyChange), 0) / clean.length;
-  const totalChange = latest.totalValue - first.totalValue;
-  const biggest = clean.reduce((best, r) => Math.abs(r.dailyChange) > Math.abs(best.dailyChange) ? r : best, clean[0]);
-
-  setTrendText('trend-current-value', money(latest.totalValue));
-  setTrendText('trend-current-note', `${latest.date} · 當日影響 ${signedMoney(latest.dailyChange)}`, trendClass(latest.dailyChange));
-  setTrendText('trend-7d', signedMoney(sum7), trendClass(sum7));
-  setTrendText('trend-drawdown', drawdown === 0 ? '高點附近' : signedMoney(drawdown), trendClass(drawdown));
-  setTrendText('trend-volatility', `±${money(avgAbs)}`);
-  setTrendText('trend-period', `${first.date} → ${latest.date}`);
-  setTrendText('trend-total-change', signedMoney(totalChange), trendClass(totalChange));
-  setTrendText('trend-biggest-day', `${biggest.date} ${signedMoney(biggest.dailyChange)}`, trendClass(biggest.dailyChange));
-
-  renderValueChart(clean);
-  renderChangeChart(clean);
-}
-
-async function fetchPortfolioTrend() {
-  try {
-    const res = await fetch('./portfolio-history.json', {cache: 'no-store'});
-    if (!res.ok) throw new Error(`history HTTP ${res.status}`);
-    renderPortfolioTrend(await res.json());
-  } catch (error) {
-    console.warn('Using embedded portfolio trend fallback:', error);
-    renderPortfolioTrend(DEFAULT_PORTFOLIO_HISTORY);
-    const note = document.getElementById('trend-current-note');
-    if (note) note.textContent += ' · 使用內建範例資料';
-  }
-}
-
-
-async function fetchExchangeRates() {
-  const usdEl = document.getElementById('fx-usd');
-  const jpyEl = document.getElementById('fx-jpy');
-  const usdChangeEl = document.getElementById('fx-usd-change');
-  const jpyChangeEl = document.getElementById('fx-jpy-change');
-  const chartEl = document.getElementById('fx-chart');
-  const noteEl = document.getElementById('fx-note');
-  if (!usdEl || !jpyEl) return;
-  const apiBase = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api';
-  const fetchRates = async (tag) => {
-    const res = await fetch(`${apiBase}@${tag}/v1/currencies/usd.json`, { cache: 'no-store' });
-    if (!res.ok) throw new Error(`fx HTTP ${res.status}`);
-    const data = await res.json();
-    return { date: data.date, usdTwd: data.usd?.twd, jpyTwd: data.usd?.twd / data.usd?.jpy };
-  };
-  const shiftDate = (iso, days) => {
-    const d = new Date(`${iso}T00:00:00Z`);
-    d.setUTCDate(d.getUTCDate() + days);
-    return d.toISOString().slice(0, 10);
-  };
-  const pct = (now, base) => (now - base) / base * 100;
-  const cls = (v) => Math.abs(v) < 0.005 ? 'fx-flat' : (v > 0 ? 'fx-up' : 'fx-down');
-  const fmt = (v, digits = 3) => Number(v).toLocaleString('zh-TW', { minimumFractionDigits: digits, maximumFractionDigits: digits });
-  const changeText = (now, prev, month) => {
-    const day = pct(now, prev);
-    const mon = pct(now, month);
-    return `<span class="${cls(day)}">日 ${day >= 0 ? '+' : ''}${day.toFixed(2)}%</span> · <span class="${cls(mon)}">月 ${mon >= 0 ? '+' : ''}${mon.toFixed(2)}%</span>`;
-  };
-  const pointLine = (values, width, height, top, bottom) => {
-    const min = Math.min(...values), max = Math.max(...values);
-    const span = Math.max(max - min, 0.000001);
-    return values.map((v, i) => {
-      const x = 12 + i * ((width - 24) / (values.length - 1));
-      const y = top + (1 - (v - min) / span) * (height - top - bottom);
-      return [x, y];
-    });
-  };
-  try {
-    const latest = await fetchRates('latest');
-    const prevDate = shiftDate(latest.date, -1);
-    const monthDate = shiftDate(latest.date, -30);
-    const [prev, month] = await Promise.all([fetchRates(prevDate), fetchRates(monthDate)]);
-    if (!latest.usdTwd || !latest.jpyTwd || !prev.usdTwd || !prev.jpyTwd || !month.usdTwd || !month.jpyTwd) throw new Error('missing TWD/JPY rates');
-    usdEl.textContent = fmt(latest.usdTwd, 3);
-    jpyEl.textContent = fmt(latest.jpyTwd * 100, 3);
-    if (usdChangeEl) usdChangeEl.innerHTML = changeText(latest.usdTwd, prev.usdTwd, month.usdTwd);
-    if (jpyChangeEl) jpyChangeEl.innerHTML = changeText(latest.jpyTwd, prev.jpyTwd, month.jpyTwd);
-    if (chartEl) {
-      const w = 320, h = 82;
-      const usdPts = pointLine([month.usdTwd, prev.usdTwd, latest.usdTwd], w, h, 12, 24);
-      const jpyPts = pointLine([month.jpyTwd, prev.jpyTwd, latest.jpyTwd], w, h, 20, 16);
-      const path = pts => pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
-      const dots = (pts, klass) => pts.map(p => `<circle class="${klass}" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="3"></circle>`).join('');
-      chartEl.innerHTML = `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="匯率近月走勢，藍線為美元、黃線為日圓"><path class="fx-line-usd" d="${path(usdPts)}"></path><path class="fx-line-jpy" d="${path(jpyPts)}"></path>${dots(usdPts, 'fx-dot-usd')}${dots(jpyPts, 'fx-dot-jpy')}<text x="12" y="78">${month.date.slice(5)}</text><text x="144" y="78">前日</text><text x="270" y="78">最新</text><text x="12" y="12">USD</text><text x="54" y="12">JPY</text></svg>`;
-    }
-    if (noteEl) noteEl.textContent = `最新 ${latest.date} · 前日 ${prev.date} · 前月 ${month.date} · 匯率上升代表外幣變貴`;
-  } catch (error) {
-    console.error('Failed to fetch exchange rates:', error);
-    usdEl.textContent = '—';
-    jpyEl.textContent = '—';
-    if (usdChangeEl) usdChangeEl.textContent = '載入失敗';
-    if (jpyChangeEl) jpyChangeEl.textContent = '載入失敗';
-    if (chartEl) chartEl.innerHTML = '<div class="tile-note">匯率走勢載入失敗。</div>';
-    if (noteEl) noteEl.textContent = '無法取得公開匯率資料';
-  }
-}
-
 function updateClock() {
   const now = new Date();
   const timeEl = document.getElementById('clock-time');
@@ -909,35 +574,11 @@ fetchWeather();
 fetchMLB();
 fetchNews();
 fetchHermesStatus();
-fetchExchangeRates();
-fetchPortfolioTrend();
 setInterval(fetchWeather, 10 * 60 * 1000);
 setInterval(fetchMLB, 10 * 60 * 1000);
 setInterval(fetchNews, 10 * 60 * 1000);
 setInterval(fetchHermesStatus, 5 * 60 * 1000);
-setInterval(fetchExchangeRates, 60 * 60 * 1000);
 setTimeout(() => location.reload(), 15 * 60 * 1000);
 </script>
-
-<script id="stock-privacy-script">
-(() => {
-  const tile = document.querySelector('.stock-tile');
-  if (!tile) return;
-  const button = tile.querySelector('.stock-privacy-toggle');
-  const apply = (masked) => {
-    tile.classList.toggle('stock-masked', masked);
-    if (!button) return;
-    button.setAttribute('aria-pressed', masked ? 'true' : 'false');
-    button.setAttribute('aria-label', masked ? '顯示台股持股金額' : '遮蔽台股持股金額');
-  };
-  // Privacy state is intentionally session-only DOM state and is not saved by the browser.
-  apply(true);
-  button?.addEventListener('click', (event) => {
-    event.preventDefault();
-    apply(!tile.classList.contains('stock-masked'));
-  });
-})();
-</script>
-
 </body>
 </html>
