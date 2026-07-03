@@ -1,0 +1,47 @@
+[
+  {
+    "date": "2026-06-17",
+    "dailyChange": 18200,
+    "totalValue": 2246800
+  },
+  {
+    "date": "2026-06-18",
+    "dailyChange": -9600,
+    "totalValue": 2237200
+  },
+  {
+    "date": "2026-06-19",
+    "dailyChange": 27600,
+    "totalValue": 2264800
+  },
+  {
+    "date": "2026-06-20",
+    "dailyChange": 7400,
+    "totalValue": 2272200
+  },
+  {
+    "date": "2026-06-21",
+    "dailyChange": -11800,
+    "totalValue": 2260400
+  },
+  {
+    "date": "2026-06-22",
+    "dailyChange": 42800,
+    "totalValue": 2303200
+  },
+  {
+    "date": "2026-06-23",
+    "dailyChange": -15100,
+    "totalValue": 2288100
+  },
+  {
+    "date": "2026-06-24",
+    "dailyChange": 17790,
+    "totalValue": 2305890
+  },
+  {
+    "date": "2026-06-25",
+    "dailyChange": 13005,
+    "totalValue": 2318895
+  }
+]
