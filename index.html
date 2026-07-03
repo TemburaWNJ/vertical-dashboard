@@ -142,6 +142,8 @@ h1 {
 .avatar-copy .tile-title { margin-bottom: 6px; }
 .avatar-copy .tile-note { margin-top: 0; }
 .tile-red { background: linear-gradient(135deg, #a80000, var(--red)); }
+.tile-pink { background: linear-gradient(135deg, #be185d, #7c3aed); }
+.tile-link { display: block; width: 100%; height: 100%; color: inherit; text-decoration: none; }
 .tile-dark { background: linear-gradient(135deg, #202735, #111827); }
 .tile-wide { grid-column: span 2; }
 .tile-tall { grid-row: span 2; }
@@ -319,6 +321,14 @@ h1 {
       </a>
     </article>
 
+    <article class="tile tile-wide tile-pink">
+      <a class="tile-link" href="https://temburawnj.github.io/kaohsiung-mamamoo-trip/" target="_blank" rel="noopener noreferrer" aria-label="開啟高雄 MAMAMOO 行程卡">
+        <div class="tile-label"><span>高雄行程</span><span class="tile-icon">🎤</span></div>
+        <h2 class="tile-title">MAMAMOO 兩天一夜</h2>
+        <p class="tile-note">手機友善行程卡 · 必帶物品勾選 · 地圖快速開啟 ↗</p>
+      </a>
+    </article>
+
     <article class="tile tile-wide tile-purple stock-tile stock-masked">
       <div class="tile-label"><span>台股持股</span><button class="stock-privacy-toggle" type="button" aria-label="遮蔽台股持股金額" aria-pressed="false"><span class="stock-eye" aria-hidden="true">👁</span></button></div>
       <h2 class="tile-title">概估總市值</h2>
@@ -377,7 +387,7 @@ h1 {
 
   <footer class="footer">
     <span>版型：Windows Phone / Metro 方格風格 · RWD</span>
-    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股與匯率摘要</span>
+    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股、匯率摘要與高雄行程入口</span>
   </footer>
 </main>
 
