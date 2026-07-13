@@ -3,9 +3,9 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-07-13 09:44",
+  "last_updated": "2026-07-13 09:59",
   "gateway": "ok",
-  "today_messages": 21,
+  "today_messages": 55,
   "total_tokens_today": "N/A",
   "cron_jobs": [
     {
@@ -21,16 +21,16 @@
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-07-13 09:59:14.720559",
-      "last_run": "2026-07-13 09:29:13.473084"
+      "next_run": "2026-07-13 10:14:48.964256",
+      "last_run": "2026-07-13 09:44:17.141325"
     },
     {
       "status": "運行中",
       "id": "8601056c001e",
       "name": "台股 Dashboard 盤中自動更新（09:02 起每 15 分）",
       "schedule": "2,17,32,47 9-12 * * *",
-      "next_run": "2026-07-13 09:47:00",
-      "last_run": "2026-07-13 09:32:50.282751"
+      "next_run": "2026-07-13 10:02:00",
+      "last_run": "2026-07-13 09:48:09.001817"
     },
     {
       "status": "運行中",
@@ -39,6 +39,13 @@
       "schedule": "0 9 * * *",
       "next_run": "2026-07-14 09:00:00",
       "last_run": "2026-07-13 09:00:10.353925"
+    },
+    {
+      "status": "運行中",
+      "id": "61bea524ccc6",
+      "name": "PTT Drama-Ticket EMI NODA VIP 2500 監控（至 7/16）",
+      "schedule": "every 60m",
+      "next_run": "2026-07-13 10:48:39.177402"
     }
   ]
 }
