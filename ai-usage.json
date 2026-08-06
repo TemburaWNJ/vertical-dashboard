@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T10:04:43",
+  "generated_at": "2026-08-06T10:17:50",
   "bots": [
     {
       "name": "Venat",
@@ -12,34 +12,34 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 1,
-        "messages": 231,
-        "user_messages": 24,
-        "tool_calls": 92,
-        "input_tokens": 1208550,
-        "output_tokens": 37736,
-        "total_tokens": 10110030,
+        "sessions": 2,
+        "messages": 294,
+        "user_messages": 27,
+        "tool_calls": 122,
+        "input_tokens": 1542827,
+        "output_tokens": 44167,
+        "total_tokens": 11610418,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 1,
-            "tokens": 10110030
+            "sessions": 2,
+            "tokens": 11610418
           }
         ]
       },
       "usage_7d": {
-        "sessions": 7,
-        "messages": 507,
-        "user_messages": 60,
-        "tool_calls": 192,
-        "input_tokens": 3306979,
-        "output_tokens": 103043,
-        "total_tokens": 16690278,
+        "sessions": 8,
+        "messages": 570,
+        "user_messages": 63,
+        "tool_calls": 222,
+        "input_tokens": 3641256,
+        "output_tokens": 109474,
+        "total_tokens": 18190666,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 7,
-            "tokens": 16690278
+            "sessions": 8,
+            "tokens": 18190666
           }
         ]
       }
@@ -49,49 +49,37 @@
       "profile": "company-bot",
       "role": "公司 bot",
       "status": {
-        "model": "openai/gpt-4o-mini",
-        "provider": "OpenRouter",
-        "gateway": "✓ running",
-        "telegram": "✓ configured (home: 8870647724)"
+        "model": "unknown",
+        "provider": "unknown",
+        "gateway": "unknown",
+        "telegram": "unknown"
       },
       "usage_1d": {
-        "sessions": 4,
-        "messages": 129,
-        "user_messages": 22,
-        "tool_calls": 52,
-        "input_tokens": 61604,
-        "output_tokens": 10502,
-        "total_tokens": 1213866,
-        "models": [
-          {
-            "model": "gpt-4o-mini",
-            "sessions": 4,
-            "tokens": 1213866
-          }
-        ]
+        "sessions": null,
+        "messages": null,
+        "user_messages": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "models": []
       },
       "usage_7d": {
-        "sessions": 4,
-        "messages": 129,
-        "user_messages": 22,
-        "tool_calls": 52,
-        "input_tokens": 61604,
-        "output_tokens": 10502,
-        "total_tokens": 1213866,
-        "models": [
-          {
-            "model": "gpt-4o-mini",
-            "sessions": 4,
-            "tokens": 1213866
-          }
-        ]
+        "sessions": null,
+        "messages": null,
+        "user_messages": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "models": []
       }
     }
   ],
   "provider_usage": {
     "openrouter": {
       "total_credits": 0,
-      "total_usage": 0.16341165
+      "total_usage": 0.16603395
     }
   },
   "notes": [
