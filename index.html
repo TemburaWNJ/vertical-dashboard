@@ -282,6 +282,22 @@ h1 {
 .fx-down { color: #b7ffbd; }
 .fx-flat { color: rgba(255,255,255,.76); }
 
+
+.ai-usage-tile { min-height: 260px; }
+.ai-bot-list { display: grid; gap: 9px; margin-top: 8px; }
+.ai-bot-card { border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.08); padding: 10px; }
+.ai-bot-card.ai-state-ok { box-shadow: inset 3px 0 0 #57d68d; }
+.ai-bot-card.ai-state-warn { box-shadow: inset 3px 0 0 #ffd166; }
+.ai-bot-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ai-bot-head strong { font-size: 16px; }
+.ai-bot-head span, .ai-bot-card small, .ai-provider-note { color: rgba(255,255,255,.66); font-size: 11px; }
+.ai-model { margin-top: 4px; color: rgba(255,255,255,.84); font-size: 12px; word-break: break-word; }
+.ai-usage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 8px; }
+.ai-usage-grid div { background: rgba(0,0,0,.18); padding: 7px; }
+.ai-usage-grid span { display: block; color: rgba(255,255,255,.58); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.ai-usage-grid strong { display: block; margin-top: 2px; font-size: 18px; font-weight: 650; }
+.ai-provider-note { margin-top: 10px; }
+
 </style>
 </head>
 <body>
@@ -319,8 +335,6 @@ h1 {
       </a>
     </article>
 
-
-
     <article class="tile tile-wide tile-purple stock-tile stock-masked">
       <div class="tile-label"><span>台股持股</span><button class="stock-privacy-toggle" type="button" aria-label="遮蔽台股持股金額" aria-pressed="false"><span class="stock-eye" aria-hidden="true">👁</span></button></div>
       <h2 class="tile-title">概估總市值</h2>
@@ -340,6 +354,33 @@ h1 {
     </article>
 
 
+
+    <article class="tile tile-wide tile-dark ai-usage-tile">
+      <div class="tile-label"><span>AI / Bot 用量</span><span class="tile-icon">🤖</span></div>
+      <div class="ai-bot-list">
+        <div class="ai-bot-card ai-state-ok">
+          <div class="ai-bot-head"><strong>Venat</strong><span>主助理</span></div>
+          <div class="ai-model">OpenAI Codex / gpt-5.5</div>
+          <div class="ai-usage-grid">
+            <div><span>今日</span><strong>10.1M</strong></div>
+            <div><span>7日</span><strong>16.7M</strong></div>
+            <div><span>訊息</span><strong>231</strong></div>
+          </div>
+          <small>✓ running · ✓ configured (home: 8870647724)</small>
+        </div>
+        <div class="ai-bot-card ai-state-ok">
+          <div class="ai-bot-head"><strong>萬倫小幫手</strong><span>公司 bot</span></div>
+          <div class="ai-model">OpenRouter / openai/gpt-4o-mini</div>
+          <div class="ai-usage-grid">
+            <div><span>今日</span><strong>1.2M</strong></div>
+            <div><span>7日</span><strong>1.2M</strong></div>
+            <div><span>訊息</span><strong>129</strong></div>
+          </div>
+          <small>✓ running · ✓ configured (home: 8870647724)</small>
+        </div></div>
+      <div class="ai-provider-note">OpenRouter usage $0.1634 · credits $0.0000</div>
+      <p class="tile-note">更新 2026-08-06 10:04:43 · Codex 顯示 Hermes token 統計，非帳單餘額</p>
+    </article>
 
     <article class="tile tile-wide tile-dark fx-tile">
       <div class="tile-label"><span>匯率</span><span class="tile-icon">💱</span></div>
@@ -381,7 +422,7 @@ h1 {
 
   <footer class="footer">
     <span>版型：Windows Phone / Metro 方格風格 · RWD</span>
-    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股與匯率摘要</span>
+    <span id="refresh-info">每 15 分鐘自動重整 · 含台股持股、匯率與 AI 用量摘要</span>
   </footer>
 </main>
 
@@ -727,6 +768,7 @@ setInterval(fetchHermesStatus, 5 * 60 * 1000);
 setInterval(fetchExchangeRates, 60 * 60 * 1000);
 setTimeout(() => location.reload(), 15 * 60 * 1000);
 </script>
+
 
 <script id="stock-privacy-script">
 (() => {
