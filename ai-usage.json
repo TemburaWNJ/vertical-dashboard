@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T12:03:22",
+  "generated_at": "2026-08-07T12:18:25",
   "bots": [
     {
       "name": "Venat",
@@ -12,18 +12,18 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 3,
-        "messages": 144,
-        "user_messages": 10,
-        "tool_calls": 66,
-        "input_tokens": 968369,
-        "output_tokens": 19463,
-        "total_tokens": 3357880,
+        "sessions": 2,
+        "messages": 76,
+        "user_messages": 6,
+        "tool_calls": 36,
+        "input_tokens": 247359,
+        "output_tokens": 8166,
+        "total_tokens": 1637413,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 3,
-            "tokens": 3357880
+            "sessions": 2,
+            "tokens": 1637413
           }
         ]
       },
