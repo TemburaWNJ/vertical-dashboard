@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-06T13:27:58",
+  "generated_at": "2026-08-07T09:02:59",
   "bots": [
     {
       "name": "Venat",
@@ -12,34 +12,34 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 4,
-        "messages": 342,
-        "user_messages": 34,
-        "tool_calls": 139,
-        "input_tokens": 1912944,
-        "output_tokens": 51300,
-        "total_tokens": 12522196,
+        "sessions": 6,
+        "messages": 473,
+        "user_messages": 43,
+        "tool_calls": 199,
+        "input_tokens": 2800380,
+        "output_tokens": 69259,
+        "total_tokens": 15433607,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 3,
-            "tokens": 12522196
+            "sessions": 6,
+            "tokens": 15433607
           }
         ]
       },
       "usage_7d": {
         "sessions": 10,
-        "messages": 618,
-        "user_messages": 70,
-        "tool_calls": 239,
-        "input_tokens": 4011373,
-        "output_tokens": 116607,
-        "total_tokens": 19102444,
+        "messages": 740,
+        "user_messages": 76,
+        "tool_calls": 298,
+        "input_tokens": 4874173,
+        "output_tokens": 134005,
+        "total_tokens": 21963058,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 9,
-            "tokens": 19102444
+            "sessions": 10,
+            "tokens": 21963058
           }
         ]
       }
@@ -49,30 +49,52 @@
       "profile": "company-bot",
       "role": "公司 bot",
       "status": {
-        "model": "unknown",
-        "provider": "unknown",
-        "gateway": "unknown",
-        "telegram": "unknown"
+        "model": "gpt-5.4-mini",
+        "provider": "OpenAI Codex",
+        "gateway": "✓ running",
+        "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": null,
-        "messages": null,
-        "user_messages": null,
-        "tool_calls": null,
-        "input_tokens": null,
-        "output_tokens": null,
-        "total_tokens": null,
-        "models": []
+        "sessions": 13,
+        "messages": 530,
+        "user_messages": 82,
+        "tool_calls": 209,
+        "input_tokens": 2088133,
+        "output_tokens": 79729,
+        "total_tokens": 11339318,
+        "models": [
+          {
+            "model": "gpt-5.4-mini",
+            "sessions": 9,
+            "tokens": 11095895
+          },
+          {
+            "model": "gpt-4o-mini",
+            "sessions": 3,
+            "tokens": 243423
+          }
+        ]
       },
       "usage_7d": {
-        "sessions": null,
-        "messages": null,
-        "user_messages": null,
-        "tool_calls": null,
-        "input_tokens": null,
-        "output_tokens": null,
-        "total_tokens": null,
-        "models": []
+        "sessions": 13,
+        "messages": 532,
+        "user_messages": 82,
+        "tool_calls": 211,
+        "input_tokens": 2088834,
+        "output_tokens": 80189,
+        "total_tokens": 11350207,
+        "models": [
+          {
+            "model": "gpt-5.4-mini",
+            "sessions": 9,
+            "tokens": 11106784
+          },
+          {
+            "model": "gpt-4o-mini",
+            "sessions": 3,
+            "tokens": 243423
+          }
+        ]
       }
     }
   ],
