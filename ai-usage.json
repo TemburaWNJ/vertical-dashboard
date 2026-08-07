@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T09:02:59",
+  "generated_at": "2026-08-07T09:18:01",
   "bots": [
     {
       "name": "Venat",
@@ -12,34 +12,34 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 6,
-        "messages": 473,
-        "user_messages": 43,
-        "tool_calls": 199,
-        "input_tokens": 2800380,
-        "output_tokens": 69259,
-        "total_tokens": 15433607,
+        "sessions": 5,
+        "messages": 207,
+        "user_messages": 19,
+        "tool_calls": 88,
+        "input_tokens": 1450426,
+        "output_tokens": 30756,
+        "total_tokens": 4481502,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 6,
-            "tokens": 15433607
+            "sessions": 5,
+            "tokens": 4481502
           }
         ]
       },
       "usage_7d": {
         "sessions": 10,
-        "messages": 740,
-        "user_messages": 76,
-        "tool_calls": 298,
-        "input_tokens": 4874173,
-        "output_tokens": 134005,
-        "total_tokens": 21963058,
+        "messages": 753,
+        "user_messages": 77,
+        "tool_calls": 304,
+        "input_tokens": 4955106,
+        "output_tokens": 135509,
+        "total_tokens": 22409527,
         "models": [
           {
             "model": "gpt-5.5",
             "sessions": 10,
-            "tokens": 21963058
+            "tokens": 22409527
           }
         ]
       }
@@ -56,17 +56,17 @@
       },
       "usage_1d": {
         "sessions": 13,
-        "messages": 530,
-        "user_messages": 82,
-        "tool_calls": 209,
-        "input_tokens": 2088133,
-        "output_tokens": 79729,
-        "total_tokens": 11339318,
+        "messages": 568,
+        "user_messages": 84,
+        "tool_calls": 228,
+        "input_tokens": 2115688,
+        "output_tokens": 86150,
+        "total_tokens": 12311790,
         "models": [
           {
             "model": "gpt-5.4-mini",
             "sessions": 9,
-            "tokens": 11095895
+            "tokens": 12068367
           },
           {
             "model": "gpt-4o-mini",
@@ -77,17 +77,17 @@
       },
       "usage_7d": {
         "sessions": 13,
-        "messages": 532,
-        "user_messages": 82,
-        "tool_calls": 211,
-        "input_tokens": 2088834,
-        "output_tokens": 80189,
-        "total_tokens": 11350207,
+        "messages": 568,
+        "user_messages": 84,
+        "tool_calls": 228,
+        "input_tokens": 2115688,
+        "output_tokens": 86150,
+        "total_tokens": 12311790,
         "models": [
           {
             "model": "gpt-5.4-mini",
             "sessions": 9,
-            "tokens": 11106784
+            "tokens": 12068367
           },
           {
             "model": "gpt-4o-mini",
