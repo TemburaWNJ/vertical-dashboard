@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T12:02:43",
+  "generated_at": "2026-08-13T12:17:30",
   "bots": [
     {
       "name": "Venat",
@@ -22,18 +22,18 @@
         "models": []
       },
       "usage_7d": {
-        "sessions": 4,
-        "messages": 182,
-        "user_messages": 16,
-        "tool_calls": 81,
-        "input_tokens": 1400039,
-        "output_tokens": 24259,
-        "total_tokens": 4723626,
+        "sessions": 3,
+        "messages": 114,
+        "user_messages": 12,
+        "tool_calls": 51,
+        "input_tokens": 679029,
+        "output_tokens": 12962,
+        "total_tokens": 3003159,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 4,
-            "tokens": 4723626
+            "sessions": 3,
+            "tokens": 3003159
           }
         ]
       }
@@ -43,30 +43,42 @@
       "profile": "company-bot",
       "role": "公司 bot",
       "status": {
-        "model": "unknown",
-        "provider": "unknown",
-        "gateway": "unknown",
-        "telegram": "unknown"
+        "model": "gpt-5.4-mini",
+        "provider": "OpenAI Codex",
+        "gateway": "✓ running",
+        "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": null,
-        "messages": null,
-        "user_messages": null,
-        "tool_calls": null,
-        "input_tokens": null,
-        "output_tokens": null,
-        "total_tokens": null,
-        "models": []
+        "sessions": 1,
+        "messages": 11,
+        "user_messages": 1,
+        "tool_calls": 5,
+        "input_tokens": 16152,
+        "output_tokens": 2009,
+        "total_tokens": 60145,
+        "models": [
+          {
+            "model": "gpt-5.4-mini",
+            "sessions": 1,
+            "tokens": 60145
+          }
+        ]
       },
       "usage_7d": {
-        "sessions": null,
-        "messages": null,
-        "user_messages": null,
-        "tool_calls": null,
-        "input_tokens": null,
-        "output_tokens": null,
-        "total_tokens": null,
-        "models": []
+        "sessions": 11,
+        "messages": 411,
+        "user_messages": 43,
+        "tool_calls": 189,
+        "input_tokens": 949760,
+        "output_tokens": 73504,
+        "total_tokens": 11051808,
+        "models": [
+          {
+            "model": "gpt-5.4-mini",
+            "sessions": 11,
+            "tokens": 11051808
+          }
+        ]
       }
     }
   ],
