@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T11:03:10",
+  "generated_at": "2026-08-17T11:18:00",
   "bots": [
     {
       "name": "Venat",
@@ -12,34 +12,34 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 1,
-        "messages": 70,
-        "user_messages": 5,
-        "tool_calls": 31,
-        "input_tokens": 204353,
-        "output_tokens": 17515,
-        "total_tokens": 1795756,
-        "models": [
-          {
-            "model": "gpt-5.5",
-            "sessions": 1,
-            "tokens": 1795756
-          }
-        ]
-      },
-      "usage_7d": {
         "sessions": 2,
-        "messages": 99,
-        "user_messages": 16,
-        "tool_calls": 34,
-        "input_tokens": 274298,
-        "output_tokens": 38152,
-        "total_tokens": 2154626,
+        "messages": 86,
+        "user_messages": 9,
+        "tool_calls": 35,
+        "input_tokens": 262951,
+        "output_tokens": 18934,
+        "total_tokens": 2027805,
         "models": [
           {
             "model": "gpt-5.5",
             "sessions": 2,
-            "tokens": 2154626
+            "tokens": 2027805
+          }
+        ]
+      },
+      "usage_7d": {
+        "sessions": 3,
+        "messages": 115,
+        "user_messages": 20,
+        "tool_calls": 38,
+        "input_tokens": 332896,
+        "output_tokens": 39571,
+        "total_tokens": 2386675,
+        "models": [
+          {
+            "model": "gpt-5.5",
+            "sessions": 3,
+            "tokens": 2386675
           }
         ]
       }
