@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T10:18:17",
+  "generated_at": "2026-08-17T10:32:54",
   "bots": [
     {
       "name": "Venat",
@@ -49,42 +49,30 @@
       "profile": "company-bot",
       "role": "公司 bot",
       "status": {
-        "model": "gpt-5.4-mini",
-        "provider": "OpenAI Codex",
-        "gateway": "✓ running",
-        "telegram": "✓ configured (home: 8870647724)"
+        "model": "unknown",
+        "provider": "unknown",
+        "gateway": "unknown",
+        "telegram": "unknown"
       },
       "usage_1d": {
-        "sessions": 1,
-        "messages": 16,
-        "user_messages": 1,
-        "tool_calls": 9,
-        "input_tokens": 19545,
-        "output_tokens": 2333,
-        "total_tokens": 80246,
-        "models": [
-          {
-            "model": "gpt-5.4-mini",
-            "sessions": 1,
-            "tokens": 80246
-          }
-        ]
+        "sessions": null,
+        "messages": null,
+        "user_messages": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "models": []
       },
       "usage_7d": {
-        "sessions": 7,
-        "messages": 117,
-        "user_messages": 7,
-        "tool_calls": 63,
-        "input_tokens": 177942,
-        "output_tokens": 22482,
-        "total_tokens": 812776,
-        "models": [
-          {
-            "model": "gpt-5.4-mini",
-            "sessions": 7,
-            "tokens": 812776
-          }
-        ]
+        "sessions": null,
+        "messages": null,
+        "user_messages": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "models": []
       }
     }
   ],
