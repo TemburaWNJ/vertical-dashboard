@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T13:27:45",
+  "generated_at": "2026-08-27T09:02:55",
   "bots": [
     {
       "name": "Venat",
@@ -12,6 +12,16 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
+        "sessions": null,
+        "messages": null,
+        "user_messages": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "models": []
+      },
+      "usage_7d": {
         "sessions": 1,
         "messages": 5,
         "user_messages": 1,
@@ -24,22 +34,6 @@
             "model": "gpt-5.5",
             "sessions": 1,
             "tokens": 38038
-          }
-        ]
-      },
-      "usage_7d": {
-        "sessions": 2,
-        "messages": 7,
-        "user_messages": 2,
-        "tool_calls": 1,
-        "input_tokens": 37996,
-        "output_tokens": 602,
-        "total_tokens": 55494,
-        "models": [
-          {
-            "model": "gpt-5.5",
-            "sessions": 2,
-            "tokens": 55494
           }
         ]
       }
@@ -56,33 +50,33 @@
       },
       "usage_1d": {
         "sessions": 1,
-        "messages": 16,
+        "messages": 18,
         "user_messages": 1,
-        "tool_calls": 9,
-        "input_tokens": 22445,
-        "output_tokens": 2998,
-        "total_tokens": 81763,
+        "tool_calls": 8,
+        "input_tokens": 25928,
+        "output_tokens": 2793,
+        "total_tokens": 132145,
         "models": [
           {
             "model": "gpt-5.4-mini",
             "sessions": 1,
-            "tokens": 81763
+            "tokens": 132145
           }
         ]
       },
       "usage_7d": {
         "sessions": 7,
-        "messages": 131,
+        "messages": 134,
         "user_messages": 7,
-        "tool_calls": 71,
-        "input_tokens": 186657,
-        "output_tokens": 22589,
-        "total_tokens": 1101662,
+        "tool_calls": 72,
+        "input_tokens": 189886,
+        "output_tokens": 21910,
+        "total_tokens": 1134932,
         "models": [
           {
             "model": "gpt-5.4-mini",
             "sessions": 7,
-            "tokens": 1101662
+            "tokens": 1134932
           }
         ]
       }
