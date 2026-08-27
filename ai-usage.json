@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-27T10:33:12",
+  "generated_at": "2026-08-27T10:45:45",
   "bots": [
     {
       "name": "Venat",
@@ -13,33 +13,33 @@
       },
       "usage_1d": {
         "sessions": 1,
-        "messages": 9,
-        "user_messages": 1,
-        "tool_calls": 8,
-        "input_tokens": 21714,
-        "output_tokens": 784,
-        "total_tokens": 38370,
+        "messages": 80,
+        "user_messages": 9,
+        "tool_calls": 48,
+        "input_tokens": 98198,
+        "output_tokens": 13576,
+        "total_tokens": 1101598,
         "models": [
           {
             "model": "gpt-5.5",
             "sessions": 1,
-            "tokens": 38370
+            "tokens": 1101598
           }
         ]
       },
       "usage_7d": {
         "sessions": 2,
-        "messages": 14,
-        "user_messages": 2,
-        "tool_calls": 9,
-        "input_tokens": 42390,
-        "output_tokens": 1250,
-        "total_tokens": 76408,
+        "messages": 85,
+        "user_messages": 10,
+        "tool_calls": 49,
+        "input_tokens": 118874,
+        "output_tokens": 14042,
+        "total_tokens": 1139636,
         "models": [
           {
             "model": "gpt-5.5",
             "sessions": 2,
-            "tokens": 76408
+            "tokens": 1139636
           }
         ]
       }
