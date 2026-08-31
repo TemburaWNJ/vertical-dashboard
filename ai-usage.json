@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T09:17:44",
+  "generated_at": "2026-08-31T09:32:40",
   "bots": [
     {
       "name": "Venat",
@@ -12,7 +12,7 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 1,
+        "sessions": 2,
         "messages": 15,
         "user_messages": 3,
         "tool_calls": 4,
@@ -28,7 +28,7 @@
         ]
       },
       "usage_7d": {
-        "sessions": 4,
+        "sessions": 5,
         "messages": 180,
         "user_messages": 20,
         "tool_calls": 89,
