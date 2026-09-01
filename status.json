@@ -3,9 +3,9 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-08-16 23:53",
+  "last_updated": "2026-09-01 09:07",
   "gateway": "ok",
-  "today_messages": 70,
+  "today_messages": 78,
   "total_tokens_today": "N/A",
   "cron_jobs": [
     {
@@ -13,55 +13,48 @@
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-08-17 00:08:10.888953",
-      "last_run": "2026-08-16 23:38:10.029749"
+      "next_run": "2026-09-01 09:22:24.825055",
+      "last_run": "2026-09-01 08:52:23.861404"
     },
     {
       "status": "運行中",
       "id": "8601056c001e",
       "name": "台股 Dashboard 盤中自動更新（09:02 起每 15 分）",
       "schedule": "2,17,32,47 9-12 * * *",
-      "next_run": "2026-08-17 09:02:00",
-      "last_run": "2026-08-16 12:47:09.239093"
+      "next_run": "2026-09-01 09:17:00",
+      "last_run": "2026-09-01 09:03:06.002431"
     },
     {
       "status": "運行中",
       "id": "406f3dc27f36",
       "name": "台股 Dashboard 13點收盤前更新（13:02/13:17/13:27）",
       "schedule": "2,17,27 13 * * *",
-      "next_run": "2026-08-17 13:02:00",
-      "last_run": "2026-08-16 13:27:09.950532"
-    },
-    {
-      "status": "運行中",
-      "id": "e506642975aa",
-      "name": "Riftbound x T1 抽選開放監控",
-      "schedule": "0 9 * * *",
-      "next_run": "2026-08-17 09:00:00",
-      "last_run": "2026-08-16 09:00:07.229219"
+      "next_run": "2026-09-01 13:02:00",
+      "last_run": "2026-08-31 13:27:43.753971"
     },
     {
       "status": "運行中",
       "id": "91031e3d7617",
       "name": "監視器用 Endurance microSD 好價追蹤",
       "schedule": "every 360m",
-      "next_run": "2026-08-17 02:06:26.010219",
-      "last_run": "2026-08-16 20:06:26.010219"
+      "next_run": "2026-09-01 10:04:40.360295",
+      "last_run": "2026-09-01 04:04:40.360295"
     },
     {
       "status": "運行中",
       "id": "ae587fbc4137",
       "name": "Riot Merch Riftbound x T1 購買資訊追蹤",
       "schedule": "0 9 * * *",
-      "next_run": "2026-08-17 09:00:00",
-      "last_run": "2026-08-16 09:00:07.739111"
+      "next_run": "2026-09-02 09:00:00",
+      "last_run": "2026-09-01 09:00:27.682785"
     },
     {
       "status": "運行中",
       "id": "ce18c7f9aeff",
       "name": "哈利波特繁中紙本套書低價追蹤",
       "schedule": "every 360m",
-      "next_run": "2026-08-17 05:50:54.166237"
+      "next_run": "2026-09-01 10:37:29.433272",
+      "last_run": "2026-09-01 04:37:29.433272"
     }
   ]
 }
