@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T13:27:54",
+  "generated_at": "2026-09-07T09:02:45",
   "bots": [
     {
       "name": "Venat",
@@ -22,18 +22,18 @@
         "models": []
       },
       "usage_7d": {
-        "sessions": 3,
-        "messages": 100,
-        "user_messages": 14,
-        "tool_calls": 39,
-        "input_tokens": 346094,
-        "output_tokens": 22736,
-        "total_tokens": 2101438,
+        "sessions": 2,
+        "messages": 93,
+        "user_messages": 12,
+        "tool_calls": 38,
+        "input_tokens": 361707,
+        "output_tokens": 22855,
+        "total_tokens": 2262578,
         "models": [
           {
             "model": "gpt-5.5",
-            "sessions": 3,
-            "tokens": 2101438
+            "sessions": 2,
+            "tokens": 2262578
           }
         ]
       }
@@ -50,27 +50,33 @@
       },
       "usage_1d": {
         "sessions": 1,
-        "messages": 1,
+        "messages": 20,
         "user_messages": 1,
-        "tool_calls": 0,
-        "input_tokens": 0,
-        "output_tokens": 0,
-        "total_tokens": 0,
-        "models": []
+        "tool_calls": 12,
+        "input_tokens": 107021,
+        "output_tokens": 3586,
+        "total_tokens": 267791,
+        "models": [
+          {
+            "model": "gpt-5.4-mini",
+            "sessions": 1,
+            "tokens": 267791
+          }
+        ]
       },
       "usage_7d": {
         "sessions": 7,
-        "messages": 75,
+        "messages": 80,
         "user_messages": 7,
-        "tool_calls": 39,
-        "input_tokens": 250631,
-        "output_tokens": 15347,
-        "total_tokens": 653050,
+        "tool_calls": 43,
+        "input_tokens": 311014,
+        "output_tokens": 16649,
+        "total_tokens": 842223,
         "models": [
           {
             "model": "gpt-5.4-mini",
             "sessions": 6,
-            "tokens": 653050
+            "tokens": 842223
           }
         ]
       }
