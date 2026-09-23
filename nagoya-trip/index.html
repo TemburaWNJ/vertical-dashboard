@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#14213d" />
+  <meta name="theme-color" content="#ffffff" />
   <title>名古屋・伊勢・新宮旅遊參考儀表板</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#f6f1e8; --ink:#1c1b19; --muted:#706a61; --card:#fffaf1; --line:#e6d9c7;
@@ -27,6 +28,20 @@
 
     .day-table{width:100%;border-collapse:separate;border-spacing:0 8px}.day-table th{font-size:12px;color:var(--muted);text-align:left;font-weight:800;padding:0 8px}.day-table td{background:#fffdf7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 8px;vertical-align:top}.day-table td:first-child{border-left:1px solid var(--line);border-radius:14px 0 0 14px;width:56px;color:var(--gold);font-weight:900}.day-table td:last-child{border-right:1px solid var(--line);border-radius:0 14px 14px 0;width:92px}.mapbtn{display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:6px 10px;border-radius:999px;background:#eef4f6;color:#1e4d63;text-decoration:none;font-weight:900;font-size:12px}.place-title{display:flex;gap:8px;align-items:center;justify-content:space-between}.cat{display:inline-block;padding:3px 7px;border-radius:999px;background:#efe3d4;color:#66503a;font-size:11px;font-weight:900}.filterbar{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.filterbar button{border:1px solid var(--line);background:#fffdf7;color:var(--navy);border-radius:999px;padding:7px 10px;font-weight:900}.filterbar button.active{background:var(--navy);color:#fff}.weather-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:760px){.weather-grid{grid-template-columns:1fr}.day-table td:last-child{width:74px}.day-table th:nth-child(3),.day-table td:nth-child(3){display:none}}.weather-card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:linear-gradient(160deg,#fffdf7,#eef4f6);padding:15px}.weather-card:after{content:"☁";position:absolute;right:14px;top:8px;font-size:42px;opacity:.16}.weather-card.sun:after{content:"☀"}.weather-card.rain:after{content:"☂"}.temp{font-size:28px;font-weight:950;color:var(--navy);line-height:1}.forecast-row{display:flex;justify-content:space-between;gap:8px;border-top:1px dashed #dfd2c0;margin-top:10px;padding-top:9px;font-size:13px}.compact-note{font-size:13px;color:var(--muted);margin:8px 0 0}.section-kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:950;margin-bottom:4px}
 
+
+    /* Style refresh: clean travel-card / Airbnb-inspired */
+    :root{--bg:#ffffff;--ink:#222222;--muted:#6a6a6a;--card:#ffffff;--line:#dddddd;--navy:#222222;--blue:#006c70;--red:#ff385c;--green:#0f766e;--gold:#b26a2c;--shadow:rgba(0,0,0,.02) 0 0 0 1px, rgba(0,0,0,.04) 0 2px 6px, rgba(0,0,0,.10) 0 4px 12px;--radius:24px}
+    body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans TC','PingFang TC',sans-serif;background:#fff;color:var(--ink);line-height:1.5}
+    header{background:#fff;color:var(--ink);padding:calc(26px + env(safe-area-inset-top)) 20px 20px;border-bottom:1px solid #eee;overflow:hidden}
+    header:after{content:"";right:-80px;top:-90px;width:220px;height:220px;background:radial-gradient(circle,#ff385c 0,#ff385c 36%,transparent 37%);opacity:.10}
+    .hero{max-width:1120px}.eyebrow{color:var(--red);opacity:1;font-weight:800;font-size:12px;letter-spacing:.14em}.title{font-size:clamp(30px,8vw,56px);font-weight:900;letter-spacing:-.04em;color:#222;margin:10px 0 8px}.subtitle{color:#555;font-size:16px;max-width:620px}.chip{background:#f7f7f7;border:1px solid #ebebeb;color:#222;font-weight:700;backdrop-filter:none}
+    nav{background:rgba(255,255,255,.92);border-bottom:1px solid #ebebeb;padding:10px 12px;box-shadow:0 2px 10px rgba(0,0,0,.03)}nav a{background:#fff;border:1px solid #ddd;color:#222;font-weight:800;box-shadow:rgba(0,0,0,.03) 0 1px 3px}nav a:hover{border-color:#222}
+    main{max-width:1120px;padding:20px 14px 88px}.grid{gap:16px}.card{background:#fff;border:1px solid #ebebeb;border-radius:24px;box-shadow:var(--shadow);padding:18px}.card .card{box-shadow:none;background:#fafafa}.half,.third{border-radius:22px}
+    h2{color:#222;font-weight:900;letter-spacing:-.03em;font-size:24px}h3{color:#222;font-weight:850;letter-spacing:-.02em}.muted{color:#6a6a6a}.section-kicker{color:#ff385c;letter-spacing:.16em}.btn{background:#222;color:#fff;border-radius:999px;font-weight:850}.btn.alt{background:#f7f7f7;color:#222;border-color:#ddd}.btn.green{background:#006c70}.btn.red{background:#ff385c}.btn.gold{background:#b26a2c}
+    .quick a{border-radius:22px;border-color:#ebebeb;background:#fff;box-shadow:rgba(0,0,0,.03) 0 2px 8px;transition:.15s transform,.15s box-shadow}.quick a:hover{transform:translateY(-1px);box-shadow:rgba(0,0,0,.08) 0 5px 18px}.quick small{font-weight:600;color:#717171}
+    .spot{border-color:#ebebeb;background:#fff;border-radius:20px;box-shadow:rgba(0,0,0,.03) 0 2px 8px}.spot b{color:#222}.mini,.mapbtn{background:#f7f7f7;color:#222;border:1px solid #ddd}.mini:hover,.mapbtn:hover{background:#222;color:#fff}.cat{background:#fff0f3;color:#c51f46;border:1px solid #ffd3dc}
+    details{background:#fff;border-color:#ebebeb;border-radius:22px;box-shadow:rgba(0,0,0,.03) 0 2px 8px}summary{color:#222;font-weight:900}details[open] summary{border-bottom:1px solid #f0f0f0}.note{background:#fff7f8;border-left:0;border:1px solid #ffd7df;border-radius:18px;color:#222}.kbd{background:#f7f7f7;border-color:#ddd;color:#222}.search{border-color:#ddd;border-radius:999px;background:#f7f7f7;padding:12px 16px}.search:focus{outline:2px solid #222;background:#fff}.filterbar button{background:#fff;border-color:#ddd;color:#222}.filterbar button.active{background:#ff385c;border-color:#ff385c;color:#fff}.day-table td{background:#fff;border-color:#ebebeb}.day-table td:first-child{color:#ff385c}.weather-card{background:linear-gradient(160deg,#fff,#f7f7f7);border-color:#ebebeb;box-shadow:rgba(0,0,0,.03) 0 2px 10px}.weather-card.sun{background:linear-gradient(160deg,#fff,#fff6e8)}.weather-card.rain{background:linear-gradient(160deg,#fff,#eef7ff)}.temp{color:#222}.forecast-row{border-top-color:#e8e8e8}.check input{accent-color:#ff385c}.footer{color:#8a8a8a}
+
   </style>
 </head>
 <body>
@@ -34,7 +49,7 @@
   <div class="hero">
     <div class="eyebrow">Nagoya · Ise · Shingu quick board</div>
     <h1 class="title">名古屋・伊勢・新宮<br>旅行參考儀表板</h1>
-    <p class="subtitle">手機友善版：共同文件、早餐、景點口袋清單、eSIM、票券、採買與拍照 tips。</p>
+    <p class="subtitle">住宿、行程、地點、天氣與攜帶清單。</p>
     <div class="chips"><span class="chip">9/24–9/30</span><span class="chip">名古屋站／榮</span><span class="chip">伊勢・鳥羽・新宮・那智</span></div>
   </div>
 </header>
