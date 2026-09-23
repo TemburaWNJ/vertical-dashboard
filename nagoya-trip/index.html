@@ -35,7 +35,7 @@
     <div class="chips"><span class="chip">9/24–9/30</span><span class="chip">名古屋站／榮</span><span class="chip">伊勢・鳥羽・新宮・那智</span></div>
   </div>
 </header>
-<nav><div class="navwrap"><a href="#links">共同文件</a><a href="#today">現場速查</a><a href="#departure">出發日</a><a href="#food">早餐</a><a href="#places">景點</a><a href="#camera">拍照 tips</a><a href="#weather">天氣</a><a href="#packing">攜帶清單</a><a href="#buy">採買</a></div></nav>
+<nav><div class="navwrap"><a href="#links">共同文件</a><a href="#today">現場速查</a><a href="#departure">出發日</a><a href="#lodging">住宿</a><a href="#itinerary">行程大綱</a><a href="#food">早餐</a><a href="#places">景點</a><a href="#camera">拍照 tips</a><a href="#weather">天氣</a><a href="#packing">攜帶清單</a><a href="#buy">採買</a></div></nav>
 <main>
   <section id="links" class="grid">
     <div class="card">
@@ -50,7 +50,7 @@
   </section>
 
   <section id="today" class="grid">
-    <div class="card half">
+    <div class="card">
       <h2>現場速查</h2>
       <div class="note"><b>旅途原則：</b>名古屋市區以早餐、喫茶、榮／名站機動為主；伊勢新宮以地方感散步點為主。</div>
       <div class="pillline"><span class="tag">雨天備案：飯店早餐</span><span class="tag">GR3x：安全版</span></div>
@@ -61,14 +61,6 @@
         <li><b>新宮：</b>神倉神社、阿須賀神社、市街巷弄、浮島の森。</li>
         <li><b>那智：</b>不要只看瀑布；大門坂要列入。</li>
       </ul>
-    </div>
-    <div class="card half">
-      <h2>出門前小勾選</h2>
-      <label class="check"><input data-key="passport" type="checkbox"><span><b>護照 / 錢包 / 手機</b><br><span class="muted">出門前最後確認三件核心物品。</span></span></label>
-      <label class="check"><input data-key="luggage" type="checkbox"><span><b>行李收口 / 充電器 / 行動電源</b><br><span class="muted">回國美整理時再做最後一次確認。</span></span></label>
-      <label class="check"><input data-key="camera" type="checkbox"><span><b>相機電池 / SD 卡</b><br><span class="muted">詳細設定不用放頁面，現場只看拍照 tips。</span></span></label>
-      <label class="check"><input data-key="shoes" type="checkbox"><span><b>好走防滑鞋</b><br><span class="muted">神倉神社、大門坂、出發日移動都比較穩。</span></span></label>
-      <button class="btn alt" onclick="resetChecks()">重置勾選</button>
     </div>
   </section>
 
@@ -104,6 +96,32 @@
           <li><b>若 10:20 還沒上車：</b>直接提高加價，並以 12:10 機捷直達車作為容錯。</li>
         </ul>
       </div></details>
+    </div>
+  </section>
+
+
+  <section id="lodging" class="grid">
+    <div class="card">
+      <h2>住宿｜最重要速查</h2>
+      <p class="muted">來源：共同 Google Sheet。這裡只列飯店名稱與入住日期，不放訂房編號或個資。</p>
+      <div class="spot"><b>9/24（四）– 9/25（五）｜Comfort Hotel ERA Ise</b><div class="meta">伊勢 2 晚。對應行程：抵達名古屋後前往伊勢；9/25 伊勢神宮／おかげ横丁。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Comfort%20Hotel%20ERA%20Ise">Google Maps</a></div></div>
+      <div class="spot"><b>9/26（六）– 9/27（日）｜マーケットステイ新宮</b><div class="meta">新宮 2 晚。對應行程：鳥羽／志摩後移動至新宮；熊野本宮、那智瀑布、新宮周邊。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9E%E3%83%BC%E3%82%B1%E3%83%83%E3%83%88%E3%82%B9%E3%83%86%E3%82%A4%E6%96%B0%E5%AE%AE">Google Maps</a></div></div>
+      <div class="spot"><b>9/28（一）– 9/29（二）｜コンフォートホテル名古屋伏見</b><div class="meta">名古屋伏見 2 晚。對應行程：新宮回名古屋還車；名古屋市區、豐田汽車博物館、熱田神宮、榮周邊。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%B3%E3%83%B3%E3%83%95%E3%82%A9%E3%83%BC%E3%83%88%E3%83%9B%E3%83%86%E3%83%AB%E5%90%8D%E5%8F%A4%E5%B1%8B%E4%BC%8F%E8%A6%8B">Google Maps</a></div></div>
+      <div class="note"><b>住宿移動節奏：</b>名古屋 → 伊勢（2晚） → 新宮（2晚） → 名古屋伏見（2晚） → 9/30 晚上回程。</div>
+    </div>
+  </section>
+
+  <section id="itinerary" class="grid">
+    <div class="card">
+      <h2>大略行程｜Google Sheet 摘要</h2>
+      <p class="muted">這是目前表格內容的速讀版；細節仍以共同 Sheet 為準。</p>
+      <div class="spot"><b>9/24（四）｜台北 → 名古屋 → 伊勢</b><div class="meta">JX838：14:55 桃園 T1 → 18:45 中部國際機場。抵達後到市區約 30–40 分，再往伊勢住宿。</div></div>
+      <div class="spot"><b>9/25（五）｜伊勢</b><div class="meta">早：あそらの茶屋。中：おかげ横丁／豚捨、伊勢內宮前、伊勢神宮。晚：居酒屋候選。</div></div>
+      <div class="spot"><b>9/26（六）｜伊勢 → 鳥羽 / 志摩 → 新宮</b><div class="meta">08:00 租車。09:30 鳥羽水族館。中間有志摩國家公園候選。晚：速水。住宿移到新宮。</div></div>
+      <div class="spot"><b>9/27（日）｜新宮 / 熊野</b><div class="meta">約 10:20 北山村観光センター。熊野本宮大社。中午約 12:50 前後移動節點。晚：東宝茶屋。</div></div>
+      <div class="spot"><b>9/28（一）｜那智 → 名古屋</b><div class="meta">那智瀑布、香梅堂；午餐候選：焼肉 一升びん 本店。之後新宮 → 名古屋還車，リニア・鉄道館、長島 Outlet 候選。住宿名古屋伏見。</div></div>
+      <div class="spot"><b>9/29（二）｜名古屋市區</b><div class="meta">早餐：Konparu Sakaehigashiten。豐田汽車博物館、金沢まいもん寿司 名古屋パルコ、あつた蓬莱軒 松坂屋店等候選。</div></div>
+      <div class="spot"><b>9/30（三）｜名古屋 → 台北</b><div class="meta">熱田神宮、ヤマハミュージック、ポケモンセンター、凄いTKG たまらん、Tower Records、Oasis 21、Leica 松坂屋等候選。JX839：19:55 中部國際機場 → 23:00 桃園 T1。</div></div>
     </div>
   </section>
 
