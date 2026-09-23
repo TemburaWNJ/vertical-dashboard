@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#14213d" />
+  <title>名古屋・伊勢・新宮旅遊參考儀表板</title>
+  <style>
+    :root{
+      --bg:#f6f1e8; --ink:#1c1b19; --muted:#706a61; --card:#fffaf1; --line:#e6d9c7;
+      --navy:#14213d; --blue:#2a6f97; --red:#9d3039; --green:#476a4d; --gold:#b9812f;
+      --shadow:0 10px 28px rgba(28,27,25,.10); --radius:22px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC",sans-serif;background:radial-gradient(circle at top,#fff7e6 0,#f6f1e8 38%,#efe5d8 100%);color:var(--ink);line-height:1.55}
+    header{padding:calc(22px + env(safe-area-inset-top)) 18px 18px;background:linear-gradient(135deg,#14213d,#24506e 58%,#8f5d36);color:white;position:relative;overflow:hidden}
+    header:after{content:"";position:absolute;right:-60px;top:-70px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.10)}
+    .hero{max-width:1040px;margin:auto;position:relative;z-index:1}.eyebrow{font-size:13px;letter-spacing:.16em;opacity:.8;text-transform:uppercase}.title{font-size:clamp(26px,7vw,48px);line-height:1.08;margin:8px 0 10px;font-weight:850}.subtitle{margin:0;color:rgba(255,255,255,.82);font-size:15px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.chip{padding:7px 10px;border:1px solid rgba(255,255,255,.28);border-radius:999px;background:rgba(255,255,255,.12);font-size:13px;backdrop-filter:blur(6px)}
+    nav{position:sticky;top:0;z-index:20;background:rgba(246,241,232,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:9px 10px;overflow-x:auto;white-space:nowrap}.navwrap{max-width:1040px;margin:auto;display:flex;gap:8px}nav a{display:inline-flex;align-items:center;min-height:40px;padding:8px 12px;border-radius:999px;background:#fffaf1;border:1px solid var(--line);color:var(--navy);text-decoration:none;font-weight:700;font-size:14px}
+    main{max-width:1040px;margin:auto;padding:18px 14px 80px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 12;background:rgba(255,250,241,.88);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}.half{grid-column:span 6}.third{grid-column:span 4}@media(max-width:760px){.half,.third{grid-column:span 12}.card{padding:15px;border-radius:18px}}
+    h2{font-size:22px;margin:0 0 12px;color:var(--navy)}h3{font-size:17px;margin:15px 0 6px}.muted{color:var(--muted);font-size:14px}.tag{display:inline-block;margin:3px 5px 3px 0;padding:4px 8px;border-radius:999px;background:#f0e3cf;color:#4d443a;font-size:12px;font-weight:700}.list{margin:8px 0 0;padding-left:1.1em}.list li{margin:6px 0}.buttonrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 12px;border-radius:14px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:14px}.btn.alt{background:#fff;border:1px solid var(--line);color:var(--navy)}.btn.green{background:var(--green)}.btn.red{background:var(--red)}.btn.gold{background:var(--gold)}
+    .quick{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}@media(max-width:560px){.quick{grid-template-columns:1fr}}
+    .quick a{min-height:58px;padding:12px;border-radius:16px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:800}.quick small{display:block;color:var(--muted);font-weight:600;margin-top:2px}
+    .spot{padding:12px;border:1px solid var(--line);border-radius:16px;background:#fffdf7;margin:10px 0}.spot b{color:var(--navy)}.spot .meta{font-size:13px;color:var(--muted);margin-top:3px}.spot .links{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.mini{font-size:12px;padding:6px 9px;min-height:34px;border-radius:999px;background:#eef4f6;color:#1e4d63;text-decoration:none;font-weight:800}
+    details{border:1px solid var(--line);border-radius:16px;background:#fffdf7;margin:10px 0;overflow:hidden}summary{cursor:pointer;padding:12px 14px;font-weight:850;color:var(--navy)}details>div{padding:0 14px 14px}.note{background:#f8ead6;border-left:5px solid var(--gold);padding:11px 12px;border-radius:13px;margin:10px 0}.warn{background:#fae8e8;border-left-color:var(--red)}
+    .check{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed #eadfce}.check:last-child{border-bottom:0}.check input{width:22px;height:22px;margin-top:2px}.search{width:100%;min-height:46px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;font-size:16px;background:#fff}.hidden{display:none!important}.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:24px}.pillline{display:flex;gap:6px;flex-wrap:wrap}.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#eee2d2;border:1px solid #decdb8;border-radius:7px;padding:2px 6px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="hero">
+    <div class="eyebrow">Nagoya · Ise · Shingu quick board</div>
+    <h1 class="title">名古屋・伊勢・新宮<br>旅行參考儀表板</h1>
+    <p class="subtitle">手機友善版：共同文件、早餐、景點口袋清單、eSIM、票券、採買與拍照 tips。</p>
+    <div class="chips"><span class="chip">9/24–9/30</span><span class="chip">名古屋站／榮</span><span class="chip">伊勢・鳥羽・新宮・那智</span><span class="chip">公開頁請勿放票券/房號/個資</span></div>
+  </div>
+</header>
+<nav><div class="navwrap"><a href="#links">共同文件</a><a href="#today">現場速查</a><a href="#food">早餐</a><a href="#places">景點</a><a href="#camera">拍照 tips</a><a href="#net">eSIM</a><a href="#event">票券活動</a><a href="#buy">採買</a></div></nav>
+<main>
+  <section id="links" class="grid">
+    <div class="card">
+      <h2>共同文件 / 快速入口</h2>
+      <p class="muted">把旅途中最常開的文件與官方頁放這裡。若之後你給我其他共用文件 URL，我可以再補進來。</p>
+      <div class="quick">
+        <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/spreadsheets/d/1CXcDFFinpMc9_LKUCcEfiRE5tKdP9Ta0UecBHcG6lQU">📋 行程 Google Sheet<small>共同文件 · 主要行程表</small></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=%E5%90%8D%E5%8F%A4%E5%B1%8B%E9%A7%85">🗺 名古屋站地圖<small>臨時找周邊、轉乘、餐廳</small></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=%E6%A0%84%E9%A7%85%20%E5%90%8D%E5%8F%A4%E5%B1%8B">🗺 榮站地圖<small>榮／矢場町周邊</small></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.kkday.com/zh-tw/product/154783">📶 KKday #154783<small>日本 eSIM · 6+1 天候選</small></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://ticket.asiangames2026.org/">🎮 亞運官方售票<small>LoL 9/30 場次查票</small></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://ise-seaparadise.book.ntmg.com/">🦭 伊勢海洋樂園預約<small>海豹膝枕 / 體驗抽選入口</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="today" class="grid">
+    <div class="card half">
+      <h2>現場速查</h2>
+      <div class="note"><b>旅途原則：</b>名古屋市區以早餐、喫茶、榮／名站機動為主；伊勢新宮以地方感散步點為主。</div>
+      <div class="pillline"><span class="tag">不硬塞遠點</span><span class="tag">雨天優先飯店早餐</span><span class="tag">GR3x 安全版</span><span class="tag">官方票券先確認</span></div>
+      <h3>最短決策</h3>
+      <ul class="list">
+        <li><b>早餐：</b>名站選 BUCYO / Pergola；榮選 加藤珈琲 / TIAD。</li>
+        <li><b>伊勢：</b>河崎、月夜見宮、二見浦。</li>
+        <li><b>新宮：</b>神倉神社、阿須賀神社、市街巷弄、浮島の森。</li>
+        <li><b>那智：</b>不要只看瀑布；大門坂要列入。</li>
+      </ul>
+    </div>
+    <div class="card half">
+      <h2>出門前小勾選</h2>
+      <label class="check"><input data-key="esim" type="checkbox"><span><b>eSIM 已安裝/截圖保存</b><br><span class="muted">#154783 6+1 無限流量 NT$177 是目前建議。</span></span></label>
+      <label class="check"><input data-key="ticket" type="checkbox"><span><b>亞運 LoL 票券確認</b><br><span class="muted">不要賭現場；Aichi Sky Expo 可能非當日券販售點。</span></span></label>
+      <label class="check"><input data-key="camera" type="checkbox"><span><b>相機電池 / SD 卡 / 設定完成</b><br><span class="muted">本頁只留拍照 tips；詳細設定你自行完成。</span></span></label>
+      <label class="check"><input data-key="shoes" type="checkbox"><span><b>好走防滑鞋</b><br><span class="muted">神倉神社、大門坂、海豹體驗都不適合拖鞋/高跟鞋。</span></span></label>
+      <button class="btn alt" onclick="resetChecks()">重置勾選</button>
+    </div>
+  </section>
+
+  <section id="food" class="grid">
+    <div class="card">
+      <h2>名古屋早餐口袋名單</h2>
+      <input class="search" placeholder="搜尋：名古屋站、榮、可預訂、喫茶、飯店…" oninput="filterCards(this.value,'food')">
+      <div data-section="food">
+        <div class="spot" data-tags="名古屋站 喫茶 小倉吐司 BUCYO"><b>BUCYO Coffee</b><div class="meta">名古屋站 · 名古屋喫茶＋小倉吐司 · 體驗感高</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=BUCYO%20Coffee%20Nagoya">Google Maps</a></div></div>
+        <div class="spot" data-tags="名古屋站 喫茶 全天 Morning"><b>喫茶リヨン</b><div class="meta">名古屋站 · 全天候 Morning · 起不來也能吃早餐感</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%96%AB%E8%8C%B6%E3%83%AA%E3%83%A8%E3%83%B3%20%E5%90%8D%E5%8F%A4%E5%B1%8B">Google Maps</a></div></div>
+        <div class="spot" data-tags="名古屋站 飯店 可預訂 穩定 雨天"><b>Nagoya Marriott Associa｜Pergola</b><div class="meta">名古屋站正上方 · 飯店 buffet · 穩定/趕車/雨天保險</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Nagoya%20Marriott%20Associa%20Pergola">Google Maps</a></div></div>
+        <div class="spot" data-tags="名古屋站 飯店 景觀 TableCheck"><b>THE GATEHOUSE</b><div class="meta">JR Gate Tower Hotel · 景觀/設計感 · 早餐開放狀況需當天查</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=THE%20GATEHOUSE%20Nagoya">Google Maps</a></div></div>
+        <div class="spot" data-tags="榮 咖啡 早餐 Kato"><b>加藤珈琲店 / Kato Coffee</b><div class="meta">榮附近 · 咖啡派早餐 · 簡單在地日常感</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kato%20Coffee%20Nagoya%20Sakae">Google Maps</a></div></div>
+        <div class="spot" data-tags="榮 喫茶 炸蝦三明治 名古屋經典"><b>コンパル 栄西店</b><div class="meta">榮 · 名古屋老牌喫茶 · 炸蝦三明治經典</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AB%20%E6%A0%84%E8%A5%BF%E5%BA%97">Google Maps</a></div></div>
+        <div class="spot" data-tags="榮 矢場町 飯店 可預訂 設計 TIAD"><b>TIAD｜Table For Tomorrow</b><div class="meta">榮/矢場町 · 新飯店設計感 · 可預訂保險</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=TIAD%20Table%20For%20Tomorrow%20Nagoya">Google Maps</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="places" class="grid">
+    <div class="card">
+      <h2>伊勢・鳥羽・新宮・那智景點口袋清單</h2>
+      <input class="search" placeholder="搜尋：伊勢、新宮、神社、海邊、老街、雨天…" oninput="filterCards(this.value,'places')">
+      <div data-section="places">
+        <div class="spot" data-tags="伊勢 老街 地方感 河崎"><b>河崎の町並み</b><div class="meta">伊勢市內商人町、老屋、倉庫、水邊街道；比おかげ横丁安靜。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B2%B3%E5%B4%8E%E3%81%AE%E7%94%BA%E4%B8%A6%E3%81%BF%20%E4%BC%8A%E5%8B%A2">地圖</a></div></div>
+        <div class="spot" data-tags="伊勢 神社 安靜 月夜見宮"><b>月夜見宮</b><div class="meta">外宮別宮；離市區近，人通常較少，適合安靜神社氛圍。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%9C%88%E5%A4%9C%E8%A6%8B%E5%AE%AE%20%E4%BC%8A%E5%8B%A2">地圖</a></div></div>
+        <div class="spot" data-tags="伊勢 海邊 二見浦 夫婦岩"><b>二見浦周邊</b><div class="meta">夫婦岩之外，也把老旅館街、海邊街道當成散步路線。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E4%BA%8C%E8%A6%8B%E6%B5%A6%20%E5%A4%AB%E5%A9%A6%E5%B2%A9">地圖</a></div></div>
+        <div class="spot" data-tags="鳥羽 港 水族館 海邊"><b>鳥羽港周邊</b><div class="meta">如果去水族館，外面港口可順手走；船、碼頭、老店更有地方感。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%B3%A5%E7%BE%BD%E6%B8%AF">地圖</a></div></div>
+        <div class="spot" data-tags="新宮 神社 石階 神倉"><b>神倉神社</b><div class="meta">新宮最值得考慮之一；陡石階、巨石、神社。鞋子要穩。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%A5%9E%E5%80%89%E7%A5%9E%E7%A4%BE%20%E6%96%B0%E5%AE%AE">地圖</a></div></div>
+        <div class="spot" data-tags="新宮 神社 安靜 阿須賀"><b>阿須賀神社</b><div class="meta">比熊野速玉大社安靜；小而有氣氛，不熱門神社候選。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E9%98%BF%E9%A0%88%E8%B3%80%E7%A5%9E%E7%A4%BE%20%E6%96%B0%E5%AE%AE">地圖</a></div></div>
+        <div class="spot" data-tags="新宮 市街 巷弄 速玉大社"><b>新宮市街／速玉大社周邊巷弄</b><div class="meta">不是景點型，但有地方城市、小食堂、老店、住宅街感。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%80%9F%E7%8E%89%E5%A4%A7%E7%A4%BE%20%E6%96%B0%E5%AE%AE%E5%B8%82">地圖</a></div></div>
+        <div class="spot" data-tags="新宮 自然 森 浮島"><b>浮島の森</b><div class="meta">新宮市內小型自然點；安靜、短暫散步用。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B5%AE%E5%B3%B6%E3%81%AE%E6%A3%AE%20%E6%96%B0%E5%AE%AE">地圖</a></div></div>
+        <div class="spot" data-tags="那智 熊野古道 石階 杉木 大門坂"><b>大門坂</b><div class="meta">去那智瀑布時很值得一起看；石階、杉木、古道氛圍比只看瀑布完整。</div><div class="links"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%20%E9%82%A3%E6%99%BA">地圖</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="camera" class="grid">
+    <div class="card">
+      <h2>拍照 tips｜只留現場用，不放詳細設定</h2>
+      <div class="note"><b>一句話：</b>看風景 U1、走城市 U2、吃飯拍人 U3；想黑白按 Fn，拍近物按上鍵小花，亮暗交給 ADJ。</div>
+      <details open><summary>U1｜風景 / 神社 / 海邊</summary><div><ul class="list"><li>用來拍鳥居、神社、海邊、白天風景。</li><li>一般 <span class="kbd">EV -0.3</span>；天空太亮可降到 <span class="kbd">-0.7</span>。</li><li>大景用 iPhone 補一張，GR3x 拍細節、路人比例、木頭與石階。</li></ul></div></details>
+      <details open><summary>U2｜城市 / 老街 / 店面</summary><div><ul class="list"><li>這組不是抓拍預設；以 AF 構圖拍城市街景。</li><li>適合招牌、老店立面、巷弄、傍晚路燈、商店街。</li><li>覺得畫面太平：先用 ADJ 壓暗一點，不必把設定改重。</li></ul></div></details>
+      <details><summary>U3｜食物 / 人物 / 室內</summary><div><ul class="list"><li>食物、咖啡、旅伴、室內小物。</li><li>近拍按上鍵小花；白盤/白飯注意不要過曝。</li><li>人物比風景重要時，優先保臉，不要為了氛圍壓太暗。</li></ul></div></details>
+      <details><summary>黑白臨時用</summary><div><ul class="list"><li>神倉石階、大門坂、雨天、樹影、人影適合。</li><li>用 Fn 臨時切，不佔 U 模式。</li><li>如果拍完忘了切回來，先看螢幕確認 Image Control。</li></ul></div></details>
+    </div>
+  </section>
+
+  <section id="net" class="grid">
+    <div class="card half"><h2>eSIM 判斷</h2><p><b>KKday #154783 6+1「無限流量」NT$177</b> 是目前建議。</p><ul class="list"><li>Google Maps / LINE / IG / 照片上傳：可。</li><li>第二支手機熱點：可，但別長時間刷短影音。</li><li>大量備份 RAW / 影片：回飯店 Wi‑Fi。</li><li>只有工作需求或很在意尖峰速度，才考慮 NT$368 飛速 5G。</li></ul><div class="buttonrow"><a class="btn green" target="_blank" rel="noopener" href="https://www.kkday.com/zh-tw/product/154783">開 KKday #154783</a></div></div>
+    <div id="event" class="card half"><h2>票券 / 活動</h2><h3>9/30 亞運 LoL 台灣 vs 韓國</h3><ul class="list"><li>日本時間 09:00；台灣時間 08:00。</li><li>Aichi Sky Expo Esport Substage / Competition Room L4。</li><li>沒有免預約直接進場；要有票。建議不要賭現場。</li></ul><h3>伊勢海洋樂園海豹膝枕</h3><ul class="list"><li>小學生以上，每組最多 2 人。</li><li>抽中後刷卡，不能取消退款。</li><li>台灣人資格上可申請；卡點可能是表單、信用卡、電話地址格式。</li><li>9/24、9/26、9/27、9/29 是候選場次。</li></ul></div>
+  </section>
+
+  <section id="buy" class="grid">
+    <div class="card">
+      <h2>採買備忘｜AT-LP70XBT</h2>
+      <p><b>判斷：</b>比 Sony PS-LX5BT 更適合旅行搬回台灣；但要確認買的是 <span class="kbd">AT-LP70XBT</span>，不是非藍牙 <span class="kbd">AT-LP70X</span>。</p>
+      <ul class="list"><li><b>可買線：</b>退稅 + coupon 後 ≤ ¥33,500。</li><li><b>還行：</b>¥34,000～35,000。</li><li><b>普通：</b>≥ ¥36,000，除非很想現場帶走。</li><li><b>行李預留：</b>約 50 × 42 × 20 cm，4.5–5.2 kg。</li></ul>
+    </div>
+  </section>
+
+  <p class="footer">本頁為旅行參考用靜態小網頁。若部署到 GitHub Pages，請勿放票券 QR、訂房編號、房號、護照資料或付款資訊。</p>
+</main>
+<script>
+const PREFIX='nagoya-trip-dashboard:';
+document.querySelectorAll('input[type="checkbox"][data-key]').forEach(c=>{c.checked=localStorage.getItem(PREFIX+c.dataset.key)==='1';c.addEventListener('change',()=>localStorage.setItem(PREFIX+c.dataset.key,c.checked?'1':'0'));});
+function resetChecks(){document.querySelectorAll('input[type="checkbox"][data-key]').forEach(c=>{c.checked=false;localStorage.removeItem(PREFIX+c.dataset.key);});}
+function filterCards(q,section){q=(q||'').trim().toLowerCase();document.querySelectorAll(`[data-section="${section}"] .spot`).forEach(el=>{const hay=(el.innerText+' '+(el.dataset.tags||'')).toLowerCase();el.classList.toggle('hidden',q && !hay.includes(q));});}
+</script>
+</body>
+</html>
