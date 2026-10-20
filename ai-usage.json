@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T13:27:59",
+  "generated_at": "2026-10-20T09:03:14",
   "bots": [
     {
       "name": "Venat",
@@ -28,13 +28,13 @@
         ]
       },
       "usage_7d": {
-        "sessions": 12,
-        "messages": 736,
-        "user_messages": 123,
-        "tool_calls": 309,
-        "input_tokens": 1740115,
-        "output_tokens": 171477,
-        "total_tokens": 24923688,
+        "sessions": 11,
+        "messages": 682,
+        "user_messages": 120,
+        "tool_calls": 283,
+        "input_tokens": 1415577,
+        "output_tokens": 147755,
+        "total_tokens": 21038532,
         "models": [
           {
             "model": "gpt-5.6-sol",
@@ -43,8 +43,8 @@
           },
           {
             "model": "gpt-5.5",
-            "sessions": 4,
-            "tokens": 9016986
+            "sessions": 3,
+            "tokens": 5131830
           }
         ]
       }
@@ -61,38 +61,38 @@
       },
       "usage_1d": {
         "sessions": 1,
-        "messages": 24,
+        "messages": 17,
         "user_messages": 1,
-        "tool_calls": 14,
-        "input_tokens": 40095,
-        "output_tokens": 1532,
-        "total_tokens": 140699,
+        "tool_calls": 9,
+        "input_tokens": 20312,
+        "output_tokens": 1106,
+        "total_tokens": 97578,
         "models": [
           {
             "model": "gpt-5.6-sol",
             "sessions": 1,
-            "tokens": 140699
+            "tokens": 97578
           }
         ]
       },
       "usage_7d": {
         "sessions": 14,
-        "messages": 161,
+        "messages": 139,
         "user_messages": 15,
-        "tool_calls": 75,
-        "input_tokens": 202498,
-        "output_tokens": 9451,
-        "total_tokens": 1215469,
+        "tool_calls": 62,
+        "input_tokens": 191013,
+        "output_tokens": 7948,
+        "total_tokens": 1045681,
         "models": [
           {
             "model": "gpt-5.6-sol",
-            "sessions": 3,
-            "tokens": 653585
+            "sessions": 4,
+            "tokens": 751163
           },
           {
             "model": "gpt-5.5",
-            "sessions": 2,
-            "tokens": 545599
+            "sessions": 1,
+            "tokens": 278233
           },
           {
             "model": "gpt-6.1-sol",
