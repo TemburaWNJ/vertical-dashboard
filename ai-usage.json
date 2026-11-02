@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T12:18:18",
+  "generated_at": "2026-11-02T12:33:18",
   "bots": [
     {
       "name": "Venat",
@@ -12,34 +12,34 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
-        "sessions": 2,
-        "messages": 114,
-        "user_messages": 9,
-        "tool_calls": 63,
-        "input_tokens": 190101,
-        "output_tokens": 7488,
-        "total_tokens": 2265045,
-        "models": [
-          {
-            "model": "gpt-6-luna",
-            "sessions": 2,
-            "tokens": 2265045
-          }
-        ]
-      },
-      "usage_7d": {
         "sessions": 3,
-        "messages": 136,
-        "user_messages": 10,
-        "tool_calls": 75,
-        "input_tokens": 229895,
-        "output_tokens": 9482,
-        "total_tokens": 2467217,
+        "messages": 133,
+        "user_messages": 12,
+        "tool_calls": 69,
+        "input_tokens": 236217,
+        "output_tokens": 8198,
+        "total_tokens": 2444991,
         "models": [
           {
             "model": "gpt-6-luna",
             "sessions": 3,
-            "tokens": 2467217
+            "tokens": 2444991
+          }
+        ]
+      },
+      "usage_7d": {
+        "sessions": 4,
+        "messages": 155,
+        "user_messages": 13,
+        "tool_calls": 81,
+        "input_tokens": 276011,
+        "output_tokens": 10192,
+        "total_tokens": 2647163,
+        "models": [
+          {
+            "model": "gpt-6-luna",
+            "sessions": 4,
+            "tokens": 2647163
           }
         ]
       }
