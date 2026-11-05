@@ -3,9 +3,9 @@
   "assistant": "Venat",
   "model": "N/A",
   "provider": "N/A",
-  "last_updated": "2026-11-01 18:24",
+  "last_updated": "2026-11-05 09:20",
   "gateway": "ok",
-  "today_messages": 89,
+  "today_messages": 230,
   "total_tokens_today": "N/A",
   "cron_jobs": [
     {
@@ -13,55 +13,56 @@
       "id": "1df07340b33e",
       "name": "status.json silent sync",
       "schedule": "every 15m",
-      "next_run": "2026-11-01 18:39:25.249932",
-      "last_run": "2026-11-01 18:08:26.557618"
+      "next_run": "2026-11-05 09:35:01.099827",
+      "last_run": "2026-11-05 09:04:02.136377"
     },
     {
       "status": "運行中",
       "id": "8601056c001e",
       "name": "台股 Dashboard＋個股盤中價格紀錄（09:02 起每 15 分）",
       "schedule": "2,17,32,47 9-12 * * *",
-      "next_run": "2026-11-02 09:02:00",
-      "last_run": "2026-11-01 12:47:26.336908"
+      "next_run": "2026-11-05 09:32:00",
+      "last_run": "2026-11-05 09:18:38.994547"
     },
     {
       "status": "運行中",
       "id": "406f3dc27f36",
       "name": "台股 Dashboard＋個股收盤前價格紀錄（13:02/13:17/13:27）",
       "schedule": "2,17,27 13 * * *",
-      "next_run": "2026-11-02 13:02:00",
-      "last_run": "2026-11-01 13:27:26.205576"
+      "next_run": "2026-11-05 13:02:00",
+      "last_run": "2026-11-04 13:28:19.613647"
     },
     {
       "status": "運行中",
       "id": "91031e3d7617",
       "name": "監視器用 Endurance microSD 好價追蹤",
       "schedule": "every 360m",
-      "next_run": "2026-11-01 19:26:38.510464",
-      "last_run": "2026-11-01 13:26:38.510464"
+      "next_run": "2026-11-05 13:41:27.458790",
+      "last_run": "2026-11-05 07:41:27.458790"
     },
     {
       "status": "運行中",
       "id": "ae587fbc4137",
       "name": "Riot Merch Riftbound x T1 購買資訊追蹤",
       "schedule": "0 9 * * *",
-      "next_run": "2026-11-02 09:00:00",
-      "last_run": "2026-11-01 09:00:29.299125"
+      "next_run": "2026-11-06 09:00:00",
+      "last_run": "2026-11-05 09:00:03.229943"
     },
     {
       "status": "運行中",
       "id": "ce18c7f9aeff",
       "name": "哈利波特繁中紙本套書低價追蹤",
       "schedule": "every 360m",
-      "next_run": "2026-11-01 22:29:28.096418",
-      "last_run": "2026-11-01 16:29:28.096418"
+      "next_run": "2026-11-05 10:55:10.991277",
+      "last_run": "2026-11-05 04:55:10.991277"
     },
     {
       "status": "運行中",
       "id": "b00a203c8f33",
-      "name": "New Balance U9060MUS 25cm 台灣現貨低價追蹤",
+      "name": "New Balance 台灣官網 9060 25cm 低價追蹤",
       "schedule": "every day at 9am",
-      "next_run": "2026-11-02 09:00:00"
+      "next_run": "2026-11-06 09:00:00",
+      "last_run": "2026-11-05 09:00:34.535114"
     }
   ]
 }
