@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T13:28:17",
+  "generated_at": "2026-11-16T09:03:00",
   "bots": [
     {
       "name": "Venat",
@@ -12,34 +12,28 @@
         "telegram": "✓ configured (home: 8870647724)"
       },
       "usage_1d": {
+        "sessions": null,
+        "messages": null,
+        "user_messages": null,
+        "tool_calls": null,
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "models": []
+      },
+      "usage_7d": {
         "sessions": 1,
-        "messages": 15,
-        "user_messages": 2,
-        "tool_calls": 5,
-        "input_tokens": 24668,
-        "output_tokens": 423,
-        "total_tokens": 140675,
+        "messages": 21,
+        "user_messages": 3,
+        "tool_calls": 7,
+        "input_tokens": 74533,
+        "output_tokens": 613,
+        "total_tokens": 215178,
         "models": [
           {
             "model": "gpt-6-luna",
             "sessions": 1,
-            "tokens": 140675
-          }
-        ]
-      },
-      "usage_7d": {
-        "sessions": 4,
-        "messages": 73,
-        "user_messages": 5,
-        "tool_calls": 32,
-        "input_tokens": 144203,
-        "output_tokens": 1812,
-        "total_tokens": 922719,
-        "models": [
-          {
-            "model": "gpt-6-luna",
-            "sessions": 4,
-            "tokens": 922719
+            "tokens": 215178
           }
         ]
       }
@@ -56,33 +50,33 @@
       },
       "usage_1d": {
         "sessions": 1,
-        "messages": 12,
+        "messages": 24,
         "user_messages": 1,
-        "tool_calls": 5,
-        "input_tokens": 15819,
-        "output_tokens": 961,
-        "total_tokens": 80396,
+        "tool_calls": 12,
+        "input_tokens": 20052,
+        "output_tokens": 1363,
+        "total_tokens": 165671,
         "models": [
           {
             "model": "gpt-5.6-sol",
             "sessions": 1,
-            "tokens": 80396
+            "tokens": 165671
           }
         ]
       },
       "usage_7d": {
-        "sessions": 7,
-        "messages": 70,
+        "sessions": 8,
+        "messages": 102,
         "user_messages": 7,
-        "tool_calls": 28,
-        "input_tokens": 120831,
-        "output_tokens": 3444,
-        "total_tokens": 469107,
+        "tool_calls": 46,
+        "input_tokens": 130102,
+        "output_tokens": 5300,
+        "total_tokens": 690666,
         "models": [
           {
             "model": "gpt-5.6-sol",
             "sessions": 7,
-            "tokens": 469107
+            "tokens": 690666
           }
         ]
       }
